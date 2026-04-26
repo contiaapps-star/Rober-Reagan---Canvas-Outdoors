@@ -32,6 +32,7 @@ FROM deps AS builder
 COPY tsconfig.json tailwind.config.ts postcss.config.js drizzle.config.ts ./
 COPY src ./src
 COPY public ./public
+COPY scripts ./scripts
 RUN npm run build
 
 # ---------- dev (hot-reload target used by docker-compose.yml) ----------

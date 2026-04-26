@@ -11,7 +11,7 @@
     "dev": "concurrently -k -n css,server -c cyan,green \"npm:dev:css\" \"npm:dev:server\"",
     "dev:css": "tailwindcss -i ./src/styles.css -o ./public/css/output.css --watch",
     "dev:server": "tsx watch src/index.ts",
-    "build": "npm run build:css && tsc",
+    "build": "npm run build:css && tsc && node scripts/copy-migrations.mjs",
     "build:css": "tailwindcss -i ./src/styles.css -o ./public/css/output.css --minify",
     "typecheck": "tsc --noEmit",
     "start": "node dist/index.js",

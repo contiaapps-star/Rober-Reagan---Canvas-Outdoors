@@ -3,6 +3,8 @@ import { serveStatic } from '@hono/node-server/serve-static';
 import { Hono } from 'hono';
 import { randomUUID } from 'node:crypto';
 
+import { maybeAutoSeed } from './db/auto-seed.js';
+import { runMigrations } from './db/migrate.js';
 import { env } from './lib/env.js';
 import { logger } from './lib/logger.js';
 import type { AppEnv } from './lib/types.js';
@@ -49,6 +51,21 @@ app.route('/jobs', jobsRoute);
 app.route('/auth', authRoute);
 
 if (env.NODE_ENV !== 'test') {
+  void bootstrap();
+}
+
+async function bootstrap() {
+  try {
+    runMigrations();
+    await maybeAutoSeed();
+  } catch (err) {
+    logger.fatal(
+      { err },
+      'boot tasks failed — aborting before opening the HTTP port',
+    );
+    process.exit(1);
+  }
+
   serve({ fetch: app.fetch, port: env.PORT, hostname: '0.0.0.0' }, (info) => {
     logger.info(
       { port: info.port, mode: env.OPERATION_MODE, env: env.NODE_ENV },
