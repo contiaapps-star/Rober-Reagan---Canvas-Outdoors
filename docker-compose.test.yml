@@ -1,0 +1,42 @@
+services:
+  # Override the running app so an e2e admin user is auto-created on boot
+  # and demo data is loaded. Use the same dev image (Dockerfile target=dev).
+  app:
+    environment:
+      OPERATION_MODE: demo
+      NODE_ENV: development
+      BOOTSTRAP_ADMIN_EMAIL: e2e-admin@flowcorewater.test
+      BOOTSTRAP_ADMIN_PASSWORD: e2e-admin-pass-1234
+
+  # Playwright runner. The Microsoft image ships @playwright/test + browsers
+  # so we don't need a host-side install. Mount only the test folder + the
+  # config so we don't fight the host's node_modules.
+  e2e:
+    image: mcr.microsoft.com/playwright:v1.49.0-jammy
+    depends_on:
+      app:
+        condition: service_healthy
+    working_dir: /e2e
+    volumes:
+      - ./tests/e2e:/e2e/tests/e2e
+      - ./playwright-results:/e2e/playwright-results
+    environment:
+      E2E_BASE_URL: http://app:3000
+      BOOTSTRAP_ADMIN_EMAIL: e2e-admin@flowcorewater.test
+      BOOTSTRAP_ADMIN_PASSWORD: e2e-admin-pass-1234
+      CI: "1"
+      PLAYWRIGHT_HTML_REPORT: /e2e/playwright-results
+    command:
+      - sh
+      - -c
+      - |
+        set -e
+        cd /e2e
+        # @playwright/test is preinstalled globally in this image — link it
+        # so `import '@playwright/test'` resolves from the test files.
+        mkdir -p node_modules/@playwright
+        if [ ! -e node_modules/@playwright/test ]; then
+          ln -s /ms-playwright/test node_modules/@playwright/test || \
+            npm install --no-audit --no-fund @playwright/test@1.49.0
+        fi
+        npx playwright test --config tests/e2e/playwright.config.ts

@@ -18,3 +18,8 @@ command = "curl -fS -X POST https://${RAILWAY_PUBLIC_DOMAIN}/jobs/poll/daily -H 
 [[deploy.cron]]
 schedule = "0 6 * * 0"
 command = "curl -fS -X POST https://${RAILWAY_PUBLIC_DOMAIN}/jobs/poll/weekly -H 'X-Cron-Secret: ${CRON_SECRET}'"
+
+# Daily backup: snapshot SQLite to /backups with 30-day retention at 03:00 UTC.
+[[deploy.cron]]
+schedule = "0 3 * * *"
+command = "sh /app/scripts/backup.sh"

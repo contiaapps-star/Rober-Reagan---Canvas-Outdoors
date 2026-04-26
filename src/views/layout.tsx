@@ -1,5 +1,7 @@
 import type { FC, PropsWithChildren } from 'hono/jsx';
 
+import { IconChevronDown } from './icons.js';
+
 export type NavKey =
   | 'dashboard'
   | 'settings'
@@ -43,6 +45,7 @@ export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
         <script src="/js/settings.js" defer></script>
       </head>
       <body class="min-h-screen flex bg-flowcore-bg text-flowcore-text-primary">
+        <PageLoader />
         <Sidebar active={active} />
         <main class="flex-1 px-8 py-6 overflow-x-auto relative">
           {flash ? <FlashBanner flash={flash} /> : null}
@@ -72,6 +75,15 @@ const ModalRoot: FC = () => (
   <div id="modal-root" data-testid="modal-root"></div>
 );
 
+const PageLoader: FC = () => (
+  <div
+    id="fc-page-loader"
+    class="fc-page-loader"
+    data-testid="page-loader"
+    aria-hidden="true"
+  ></div>
+);
+
 const isSettingsActive = (active?: NavKey): boolean =>
   active === 'settings' ||
   active === 'settings.competitors' ||
@@ -92,14 +104,10 @@ const Sidebar: FC<{ active?: NavKey }> = ({ active }) => {
           label="Health"
           isActive={active === 'health'}
         />
-        <NavLink
-          href="/auth/logout"
-          label="Sign Out"
-          isActive={active === 'sign-out'}
-        />
+        <SignOutForm />
       </nav>
       <div class="mt-auto text-[11px] text-flowcore-muted">
-        v0.1.0 · Phase 2
+        v0.1.0 · Phase 7
       </div>
     </aside>
   );
@@ -141,8 +149,8 @@ const SettingsGroup: FC<{ active?: NavKey; open: boolean }> = ({ active, open })
       data-active={isSettingsActive(active) ? 'true' : 'false'}
     >
       <span>Settings</span>
-      <span class="fc-sidebar__chevron" aria-hidden="true">
-        ▾
+      <span class="fc-sidebar__chevron">
+        <IconChevronDown />
       </span>
     </button>
     <div
@@ -166,6 +174,18 @@ const SettingsGroup: FC<{ active?: NavKey; open: boolean }> = ({ active, open })
       />
     </div>
   </div>
+);
+
+const SignOutForm: FC = () => (
+  <form method="post" action="/auth/logout" data-testid="sign-out-form">
+    <button
+      type="submit"
+      class="fc-sidebar__nav-item w-full text-left"
+      data-testid="sign-out"
+    >
+      Sign Out
+    </button>
+  </form>
 );
 
 const SubNavLink: FC<{ href: string; label: string; isActive: boolean }> = ({

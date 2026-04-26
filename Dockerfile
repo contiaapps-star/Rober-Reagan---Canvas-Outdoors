@@ -2,7 +2,7 @@
 # ---------- base ----------
 FROM node:20-bookworm-slim AS base
 RUN apt-get update \
- && apt-get install -y --no-install-recommends curl tini ca-certificates \
+ && apt-get install -y --no-install-recommends curl tini ca-certificates sqlite3 \
  && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 ENV NODE_ENV=development \
@@ -43,8 +43,8 @@ COPY src ./src
 COPY public ./public
 COPY tests ./tests
 COPY scripts ./scripts
-RUN mkdir -p /data \
- && chown -R node:node /data /app
+RUN mkdir -p /data /backups \
+ && chown -R node:node /data /backups /app
 EXPOSE 3000
 USER node
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
@@ -61,8 +61,8 @@ COPY --from=builder /app/public ./public
 # Cron-trigger services run scripts/trigger-cron.sh against this same image.
 COPY scripts ./scripts
 COPY package.json ./
-RUN mkdir -p /data \
- && chown -R node:node /data /app
+RUN mkdir -p /data /backups \
+ && chown -R node:node /data /backups /app
 EXPOSE 3000
 USER node
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \

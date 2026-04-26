@@ -1,7 +1,7 @@
 {
   "name": "flowcore-marketing-sensor",
   "version": "0.1.0",
-  "description": "FlowCore Marketing Sensor — daily competitive intelligence feed for FlowCore Water (Phase 0 skeleton).",
+  "description": "FlowCore Marketing Sensor — daily competitive intelligence feed for FlowCore Water.",
   "private": true,
   "type": "module",
   "engines": {
@@ -17,12 +17,15 @@
     "start": "node dist/index.js",
     "test": "npm run build:css && npm run typecheck && vitest run",
     "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
-    "seed": "tsx scripts/seed.ts"
+    "seed": "tsx scripts/seed.ts",
+    "create-user": "tsx scripts/create-user.ts"
   },
   "dependencies": {
     "@hono/node-server": "1.13.7",
+    "@node-rs/argon2": "1.8.3",
     "better-sqlite3": "11.5.0",
     "drizzle-orm": "0.36.4",
     "fast-xml-parser": "4.5.0",
@@ -34,6 +37,7 @@
     "@types/better-sqlite3": "7.6.12",
     "@types/node": "20.17.9",
     "@types/supertest": "6.0.2",
+    "@vitest/coverage-v8": "2.1.6",
     "concurrently": "9.1.0",
     "drizzle-kit": "0.28.1",
     "happy-dom": "15.11.7",

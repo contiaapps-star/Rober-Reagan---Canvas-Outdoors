@@ -1,5 +1,7 @@
 import type { FC } from 'hono/jsx';
 
+import { IconX } from '../icons.js';
+
 export type InspirationFormValues = {
   kind: 'account' | 'keyword_search' | '';
   value: string;
@@ -60,7 +62,7 @@ export const InspirationForm: FC<InspirationFormProps> = ({
             data-modal-close="true"
             aria-label="Close"
           >
-            ✕
+            <IconX size={18} class="w-[18px] h-[18px]" />
           </button>
         </div>
 

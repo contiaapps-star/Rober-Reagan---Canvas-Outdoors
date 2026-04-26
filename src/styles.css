@@ -16,6 +16,31 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  /* Visible focus ring for keyboard navigation only — does not show on click. */
+  a:focus-visible,
+  button:focus-visible,
+  [role='button']:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:not([tabindex='-1']):focus-visible {
+    outline: 2px solid theme('colors.flowcore.accent');
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  /* Honor user preference: kill animations/transitions for motion-sensitive users. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 @layer components {
@@ -89,7 +114,7 @@
 
   /* Tables */
   .table-flowcore-wrapper {
-    @apply bg-flowcore-surface border border-flowcore-border rounded-lg overflow-hidden;
+    @apply bg-flowcore-surface border border-flowcore-border rounded-lg overflow-x-auto;
   }
 
   .table-flowcore {
@@ -291,13 +316,13 @@
 
   /* Action buttons (Useful/Skip) */
   .btn-useful {
-    @apply inline-flex items-center justify-center px-2 py-1 rounded-md
+    @apply inline-flex items-center justify-center gap-1 px-2 py-1 rounded-md
            bg-flowcore-success/15 text-flowcore-success text-xs font-medium
            border border-flowcore-success/30 hover:bg-flowcore-success/25 transition-colors;
   }
 
   .btn-skip {
-    @apply inline-flex items-center justify-center px-2 py-1 rounded-md
+    @apply inline-flex items-center justify-center gap-1 px-2 py-1 rounded-md
            bg-flowcore-muted/15 text-flowcore-text-secondary text-xs font-medium
            border border-flowcore-border hover:bg-flowcore-surface-hover transition-colors;
   }
@@ -325,6 +350,34 @@
     word-break: break-word;
   }
 
+  /* Page-level loading bar — driven by body[data-htmx-loading] in settings.js */
+  .fc-page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: theme('colors.flowcore.accent');
+    transform: scaleX(0);
+    transform-origin: left center;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.2s ease-out;
+  }
+
+  body[data-htmx-loading='true'] .fc-page-loader {
+    opacity: 1;
+    animation: fc-loader-pulse 1.4s ease-in-out infinite;
+  }
+
+  @keyframes fc-loader-pulse {
+    0% { transform: scaleX(0); transform-origin: left center; }
+    50% { transform: scaleX(1); transform-origin: left center; }
+    51% { transform: scaleX(1); transform-origin: right center; }
+    100% { transform: scaleX(0); transform-origin: right center; }
+  }
+
   /* Banners (degraded / broken) */
   .fc-banner {
     @apply block px-4 py-3 mb-4 rounded-md text-sm border;
@@ -338,5 +391,77 @@
   .fc-banner--broken {
     @apply bg-flowcore-danger/15 text-flowcore-danger border-flowcore-danger/30
            hover:bg-flowcore-danger/25;
+  }
+
+  /* Inline indicator for hx-indicator wiring (per-target spinner). */
+  .htmx-indicator {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+  }
+  .htmx-request .htmx-indicator,
+  .htmx-request.htmx-indicator {
+    opacity: 1;
+  }
+
+  /* Toast container — pinned top-right; entries auto-fade out via animation. */
+  .fc-toast-container {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 70;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .fc-toast {
+    @apply px-4 py-3 rounded-md text-sm shadow-lg max-w-sm;
+    animation: fc-toast-fade 5s ease-in-out forwards;
+  }
+  .fc-toast--success {
+    @apply bg-flowcore-success/20 text-flowcore-success border border-flowcore-success/30;
+  }
+  .fc-toast--error {
+    @apply bg-flowcore-danger/20 text-flowcore-danger border border-flowcore-danger/30;
+  }
+  @keyframes fc-toast-fade {
+    0% { opacity: 0; transform: translateY(-8px); }
+    8%, 90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-8px); }
+  }
+
+  /* Mobile fallback (≤640px) — Robert checks from his iPhone, so collapse the
+     sidebar to a top strip and let the main panel reflow. Pixel-perfect mobile
+     is out of scope for V1; this just keeps the dashboard usable. */
+  @media (max-width: 640px) {
+    body {
+      flex-direction: column;
+    }
+    .fc-sidebar {
+      width: 100%;
+      min-height: auto;
+      flex-direction: row;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      flex-wrap: wrap;
+      border-right: none;
+      @apply border-b border-flowcore-border;
+    }
+    .fc-sidebar__sublabel {
+      margin-bottom: 0;
+    }
+    .fc-sidebar nav {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .fc-sidebar__nav-item,
+    .fc-sidebar__nav-sub-item {
+      border-left-width: 0 !important;
+    }
+    main {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
   }
 }

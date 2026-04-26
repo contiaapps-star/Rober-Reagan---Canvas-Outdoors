@@ -17,6 +17,16 @@ let app: Hono;
 
 function buildHealthApp(db: TestDb): Hono {
   const a = new Hono();
+  // Simulate an authenticated admin so the admin-only "Retry now" / "Run all"
+  // buttons render in the health view (Phase 7 gates them on user.role).
+  a.use('*', async (c, next) => {
+    c.set('user', {
+      id: 'test-admin',
+      email: 'test-admin@flowcorewater.test',
+      role: 'admin',
+    });
+    return next();
+  });
   a.route('/health', createHealthRoute(db));
   return a;
 }

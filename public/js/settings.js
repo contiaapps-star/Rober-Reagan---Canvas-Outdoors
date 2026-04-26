@@ -74,6 +74,38 @@
     if (evt.key === 'Escape') closeModal();
   });
 
+  // Global page-loader: sets data-htmx-loading on <body> while ANY htmx request
+  // is in flight, so a top progress bar can animate without per-trigger
+  // hx-indicator wiring. Tracks a counter to handle overlapping requests.
+  var inFlight = 0;
+  function setLoading(on) {
+    if (on) {
+      inFlight += 1;
+    } else {
+      inFlight = Math.max(0, inFlight - 1);
+    }
+    if (inFlight > 0) {
+      document.body.setAttribute('data-htmx-loading', 'true');
+    } else {
+      document.body.removeAttribute('data-htmx-loading');
+    }
+  }
+  document.addEventListener('htmx:beforeRequest', function () {
+    setLoading(true);
+  });
+  document.addEventListener('htmx:afterRequest', function () {
+    setLoading(false);
+  });
+  document.addEventListener('htmx:sendError', function () {
+    setLoading(false);
+  });
+  document.addEventListener('htmx:responseError', function () {
+    setLoading(false);
+  });
+  document.addEventListener('htmx:timeout', function () {
+    setLoading(false);
+  });
+
   // After a successful POST/PUT, clear the modal so the new row stays visible.
   document.addEventListener('htmx:afterSwap', function (evt) {
     var trigger = evt.detail && evt.detail.requestConfig && evt.detail.requestConfig.elt;

@@ -1,9 +1,26 @@
+# Production override. Combine with the base file:
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+#
+# `!reset` clears the dev-mode bind mounts so the production image is run
+# in isolation (no host source mounted in). Requires Compose v2.24+.
 services:
   app:
     build:
       target: runner
     image: flowcore-marketing-sensor:prod
     command: ["node", "dist/index.js"]
-    volumes:
+    volumes: !reset
       - db-data:/data
+      - backups:/backups
+    env_file: !reset
+      - .env.production
     restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  backups:
+    name: flowcore-sensor-backups

@@ -2,6 +2,7 @@ import { Hono, type Context } from 'hono';
 import { z } from 'zod';
 
 import type { Db } from '../db/client.js';
+import type { AppEnv } from '../lib/types.js';
 import { flash, readFlash } from '../lib/flash.js';
 import {
   HANDLE_CHANNELS,
@@ -163,8 +164,8 @@ function flattenZodErrors<T extends Record<string, unknown>>(
   return out as T;
 }
 
-export function createSettingsRoute(db: Db): Hono {
-  const app = new Hono();
+export function createSettingsRoute(db: Db): Hono<AppEnv> {
+  const app = new Hono<AppEnv>();
 
   app.get('/', (c) => c.redirect('/settings/competitors'));
 
@@ -531,4 +532,4 @@ export function createSettingsRoute(db: Db): Hono {
 // /settings request via the route handlers that call it.
 import { getDb } from '../db/client.js';
 
-export const settingsRoute: Hono = createSettingsRoute(getDb());
+export const settingsRoute: Hono<AppEnv> = createSettingsRoute(getDb());

@@ -9,7 +9,8 @@ export const HealthView: FC<{
   monthlySpendUsd: number;
   monthlyBudgetUsd: number;
   nowUnix: number;
-}> = ({ cards, monthlySpendUsd, monthlyBudgetUsd, nowUnix }) => {
+  isAdmin?: boolean;
+}> = ({ cards, monthlySpendUsd, monthlyBudgetUsd, nowUnix, isAdmin = false }) => {
   const ratio = monthlyBudgetUsd > 0 ? monthlySpendUsd / monthlyBudgetUsd : 0;
   const pct = Math.min(100, Math.round(ratio * 100));
   const barColor =
@@ -30,15 +31,17 @@ export const HealthView: FC<{
             One card per channel × competitor. Status reflects the last poll.
           </p>
         </div>
-        <form
-          method="post"
-          action="/health/run-all"
-          data-testid="run-all-form"
-        >
-          <button type="submit" class="btn-ghost" data-testid="btn-run-all">
-            Run all daily polls now
-          </button>
-        </form>
+        {isAdmin ? (
+          <form
+            method="post"
+            action="/health/run-all"
+            data-testid="run-all-form"
+          >
+            <button type="submit" class="btn-ghost" data-testid="btn-run-all">
+              Run all daily polls now
+            </button>
+          </form>
+        ) : null}
       </header>
 
       <section
@@ -49,7 +52,7 @@ export const HealthView: FC<{
           <div class="text-flowcore-muted text-xs uppercase tracking-wider">
             API spend this month
           </div>
-          <div class="text-flowcore-text-primary text-xl font-semibold mt-1">
+          <div class="text-flowcore-text-primary text-xl font-semibold mt-1 tabular-nums">
             <span data-testid="spend-amount">
               ${monthlySpendUsd.toFixed(2)}
             </span>
@@ -70,7 +73,7 @@ export const HealthView: FC<{
               data-percent={pct}
             ></div>
           </div>
-          <p class="text-flowcore-text-secondary text-xs mt-1 text-right">
+          <p class="text-flowcore-text-secondary text-xs mt-1 text-right tabular-nums">
             {pct}% used
           </p>
         </div>
@@ -86,7 +89,7 @@ export const HealthView: FC<{
           </div>
         ) : (
           cards.map((card) => (
-            <HealthCardView card={card} nowUnix={nowUnix} />
+            <HealthCardView card={card} nowUnix={nowUnix} isAdmin={isAdmin} />
           ))
         )}
       </div>
@@ -94,9 +97,10 @@ export const HealthView: FC<{
   );
 };
 
-const HealthCardView: FC<{ card: HealthCard; nowUnix: number }> = ({
+const HealthCardView: FC<{ card: HealthCard; nowUnix: number; isAdmin: boolean }> = ({
   card,
   nowUnix,
+  isAdmin,
 }) => {
   const borderClass =
     card.state === 'green'
@@ -153,7 +157,7 @@ const HealthCardView: FC<{ card: HealthCard; nowUnix: number }> = ({
         </div>
         <div class="flex justify-between">
           <dt>Items fetched</dt>
-          <dd>{card.itemsFetched}</dd>
+          <dd class="tabular-nums">{card.itemsFetched}</dd>
         </div>
         {card.errorMessage ? (
           <div class="mt-2">
@@ -164,19 +168,21 @@ const HealthCardView: FC<{ card: HealthCard; nowUnix: number }> = ({
           </div>
         ) : null}
       </dl>
-      <form
-        method="post"
-        action={`/jobs/poll/${card.channel}?competitor_id=${card.competitorId}`}
-        class="mt-3"
-      >
-        <button
-          type="submit"
-          class="btn-ghost text-xs w-full"
-          data-testid={`retry-${card.channel}-${card.competitorId}`}
+      {isAdmin ? (
+        <form
+          method="post"
+          action={`/health/retry/${card.channel}`}
+          class="mt-3"
         >
-          Retry now
-        </button>
-      </form>
+          <button
+            type="submit"
+            class="btn-ghost text-xs w-full"
+            data-testid={`retry-${card.channel}-${card.competitorId}`}
+          >
+            Retry now
+          </button>
+        </form>
+      ) : null}
     </article>
   );
 };

@@ -2,6 +2,12 @@ import type { FC } from 'hono/jsx';
 
 import type { RecentActivityRow } from '../../db/queries.js';
 import { channelChipClass, channelLabel } from '../../lib/channels.js';
+import {
+  IconCheck,
+  IconExternalLink,
+  IconEye,
+  IconX,
+} from '../icons.js';
 
 const TIER_LABELS: Record<string, string> = {
   local_same_size: 'Local',
@@ -104,13 +110,13 @@ export const ActivityRow: FC<{
       </td>
       <td class="fc-table__cell">
         <a
-          class="text-flowcore-accent hover:underline text-sm"
+          class="inline-flex items-center justify-center w-7 h-7 rounded text-flowcore-accent hover:bg-flowcore-surface-hover transition-colors"
           href={row.sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Open source"
         >
-          ↗
+          <IconExternalLink />
         </a>
       </td>
       <td class="fc-table__cell">
@@ -128,7 +134,8 @@ export const ActivityRow: FC<{
             data-testid={`btn-useful-${row.id}`}
             aria-label="Mark useful"
           >
-            ✓ Useful
+            <IconCheck />
+            <span>Useful</span>
           </button>
           <button
             type="button"
@@ -140,7 +147,8 @@ export const ActivityRow: FC<{
             data-testid={`btn-skip-${row.id}`}
             aria-label="Skip"
           >
-            ✕ Skip
+            <IconX />
+            <span>Skip</span>
           </button>
           <a
             class="btn-ghost"
@@ -148,7 +156,8 @@ export const ActivityRow: FC<{
             data-testid={`btn-detail-${row.id}`}
             aria-label="Detail"
           >
-            👁
+            <IconEye />
+            <span class="sr-only">Detail</span>
           </a>
         </div>
       </td>

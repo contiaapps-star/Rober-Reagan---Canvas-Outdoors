@@ -2,6 +2,7 @@ import type { FC } from 'hono/jsx';
 
 import { HANDLE_CHANNELS, type HandleChannel } from '../../services/settings-repo.js';
 import { channelLabel } from '../../lib/channels.js';
+import { IconX } from '../icons.js';
 
 export type CompetitorFormValues = {
   name: string;
@@ -70,7 +71,7 @@ export const CompetitorForm: FC<CompetitorFormProps> = ({
             data-modal-close="true"
             aria-label="Close"
           >
-            ✕
+            <IconX size={18} class="w-[18px] h-[18px]" />
           </button>
         </div>
 

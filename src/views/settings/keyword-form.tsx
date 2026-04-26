@@ -1,5 +1,7 @@
 import type { FC } from 'hono/jsx';
 
+import { IconX } from '../icons.js';
+
 export type KeywordFormValues = {
   keyword: string;
   category: 'well' | 'plumbing' | 'both' | '';
@@ -49,7 +51,7 @@ export const KeywordForm: FC<KeywordFormProps> = ({ mode, id, values, errors }) 
             data-modal-close="true"
             aria-label="Close"
           >
-            ✕
+            <IconX size={18} class="w-[18px] h-[18px]" />
           </button>
         </div>
 

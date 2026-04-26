@@ -4,6 +4,7 @@ import { raw } from 'hono/html';
 
 import type { RecentActivityRow } from '../../db/queries.js';
 import type { FilterState } from '../../lib/feed-filters.js';
+import { IconArrowDown, IconArrowUp } from '../icons.js';
 import { ActivityRow } from './activity-row.js';
 
 export const ACTIVITY_TABLE_ID = 'activity-feed-tbody';
@@ -119,7 +120,7 @@ const SortableHeader: FC<{
   state: FilterState;
 }> = ({ label, state }) => {
   const nextSort = state.sort === 'desc' ? 'asc' : 'desc';
-  const arrow = state.sort === 'desc' ? '↓' : '↑';
+  const ArrowIcon = state.sort === 'desc' ? IconArrowDown : IconArrowUp;
   return (
     <button
       type="button"
@@ -133,7 +134,8 @@ const SortableHeader: FC<{
       hx-push-url="true"
       hx-vals={`{"sort":"${nextSort}"}`}
     >
-      {label} <span aria-hidden="true">{arrow}</span>
+      <span>{label}</span>
+      <ArrowIcon />
     </button>
   );
 };

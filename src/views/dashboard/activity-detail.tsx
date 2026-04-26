@@ -2,6 +2,12 @@ import type { FC } from 'hono/jsx';
 
 import type { ActivityDetailRow } from '../../db/queries.js';
 import { channelChipClass, channelLabel } from '../../lib/channels.js';
+import {
+  IconArrowLeft,
+  IconCheck,
+  IconExternalLink,
+  IconX,
+} from '../icons.js';
 import { Layout } from '../layout.js';
 
 const TIER_LABELS: Record<string, string> = {
@@ -118,7 +124,7 @@ const AdPreview: FC<{
         </p>
       ) : null}
       {bid !== null ? (
-        <p class="text-sm text-flowcore-text-secondary">
+        <p class="text-sm text-flowcore-text-secondary tabular-nums">
           Bid estimate: ${bid.toFixed(2)}
         </p>
       ) : null}
@@ -130,7 +136,8 @@ const AdPreview: FC<{
           target="_blank"
           rel="noopener noreferrer"
         >
-          Open landing page ↗
+          <span>Open landing page</span>
+          <IconExternalLink class="w-3.5 h-3.5 inline ml-1" />
         </a>
       ) : (
         <a
@@ -139,7 +146,8 @@ const AdPreview: FC<{
           target="_blank"
           rel="noopener noreferrer"
         >
-          Open source ↗
+          <span>Open source</span>
+          <IconExternalLink class="w-3.5 h-3.5 inline ml-1" />
         </a>
       )}
     </div>
@@ -185,7 +193,8 @@ const VideoPreview: FC<{
         target="_blank"
         rel="noopener noreferrer"
       >
-        Open video ↗
+        <span>Open video</span>
+        <IconExternalLink class="w-3.5 h-3.5 inline ml-1" />
       </a>
     </div>
   );
@@ -215,7 +224,8 @@ const WebsitePreview: FC<{
         target="_blank"
         rel="noopener noreferrer"
       >
-        Open page ↗
+        <span>Open page</span>
+        <IconExternalLink class="w-3.5 h-3.5 inline ml-1" />
       </a>
     </div>
   );
@@ -273,7 +283,8 @@ const SeoRankingPreview: FC<{
         target="_blank"
         rel="noopener noreferrer"
       >
-        Open report ↗
+        <span>Open report</span>
+        <IconExternalLink class="w-3.5 h-3.5 inline ml-1" />
       </a>
     </div>
   );
@@ -297,7 +308,8 @@ const SeoBacklinkPreview: FC<{
         target="_blank"
         rel="noopener noreferrer"
       >
-        Open backlink ↗
+        <span>Open backlink</span>
+        <IconExternalLink class="w-3.5 h-3.5 inline ml-1" />
       </a>
     </div>
   );
@@ -317,7 +329,8 @@ const StatusActions: FC<{ row: ActivityDetailRow }> = ({ row }) => (
       class="btn-useful"
       data-testid="detail-btn-useful"
     >
-      ✓ Mark Useful
+      <IconCheck />
+      <span>Mark Useful</span>
     </button>
     <button
       type="submit"
@@ -326,7 +339,8 @@ const StatusActions: FC<{ row: ActivityDetailRow }> = ({ row }) => (
       class="btn-skip"
       data-testid="detail-btn-skip"
     >
-      ✕ Skip
+      <IconX />
+      <span>Skip</span>
     </button>
   </form>
 );
@@ -353,10 +367,11 @@ export const ActivityDetailView: FC<{ row: ActivityDetailRow }> = ({ row }) => {
       <header class="mb-6">
         <a
           href="/"
-          class="text-flowcore-text-secondary text-xs hover:text-flowcore-text-primary"
+          class="inline-flex items-center gap-1 text-flowcore-text-secondary text-xs hover:text-flowcore-text-primary"
           data-testid="back-link"
         >
-          ← Back to feed
+          <IconArrowLeft />
+          <span>Back to feed</span>
         </a>
         <h1
           class="text-2xl font-semibold text-flowcore-text-primary mt-2"

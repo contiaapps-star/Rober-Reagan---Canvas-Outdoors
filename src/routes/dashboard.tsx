@@ -3,6 +3,7 @@ import { getCookie, setCookie } from 'hono/cookie';
 import { z } from 'zod';
 
 import type { Db } from '../db/client.js';
+import type { AppEnv } from '../lib/types.js';
 import {
   getActivityDetailById,
   getActivityFeed,
@@ -86,8 +87,8 @@ function writeFilterCookie(
   });
 }
 
-export function createDashboardRoute(db: Db): Hono {
-  const app = new Hono();
+export function createDashboardRoute(db: Db): Hono<AppEnv> {
+  const app = new Hono<AppEnv>();
 
   // ─── GET / ────────────────────────────────────────────────────────────────
   app.get('/', (c) => {
@@ -149,6 +150,22 @@ export function createDashboardRoute(db: Db): Hono {
       hasMore && last ? encodeCursor(last.detectedAt, last.id) : null;
 
     writeFilterCookie(c, state);
+
+    // For non-pagination requests (filter changes / sort toggles), tell htmx
+    // to push the canonical dashboard URL `/?<query>` instead of the partial
+    // `/activities/feed?<query>`. The chips/sort headers all use
+    // hx-push-url="true" which would otherwise leak the fragment endpoint
+    // into the address bar.
+    if (!isAppend && c.req.header('HX-Request') === 'true') {
+      const params = new URLSearchParams();
+      if (state.range && state.range !== 'all') params.set('range', state.range);
+      if (state.channel) params.set('channel', state.channel);
+      if (state.status) params.set('status', state.status);
+      if (state.competitorId) params.set('competitor_id', state.competitorId);
+      if (state.sort && state.sort !== 'desc') params.set('sort', state.sort);
+      const qs = params.toString();
+      c.header('HX-Push-Url', qs ? `/?${qs}` : '/');
+    }
 
     const feed = (
       <ActivityFeedRegion
@@ -212,12 +229,8 @@ export function createDashboardRoute(db: Db): Hono {
       return c.text('Invalid status', 400);
     }
 
-    const updated = setActivityStatus(
-      db,
-      id,
-      parsed.data.status,
-      'system-pending-auth',
-    );
+    const actor = c.get('user')?.email ?? 'system';
+    const updated = setActivityStatus(db, id, parsed.data.status, actor);
     if (!updated) {
       return c.text('Activity not found', 404);
     }
@@ -254,7 +267,7 @@ export function createDashboardRoute(db: Db): Hono {
 }
 
 import { getDb } from '../db/client.js';
-export const dashboardRoute: Hono = createDashboardRoute(getDb());
+export const dashboardRoute: Hono<AppEnv> = createDashboardRoute(getDb());
 
 // Named export for consistency with how settings exposes a default state for
 // the cookie helper used in tests/views.

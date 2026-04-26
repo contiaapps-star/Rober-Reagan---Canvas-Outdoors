@@ -19,3 +19,10 @@ docs/
 resourses/
 *.log
 README.md
+# Playwright artefacts and the test compose file. Tests/ is NOT excluded —
+# the dev stage of the Dockerfile copies it for `npm test`. The runner
+# stage doesn't copy tests at all, so they're already kept out of prod.
+playwright-results/
+test-results/
+playwright-report/
+docker-compose.test.yml
