@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "well-pump-failure-warning-signs",
+    "title": "5 Warning Signs Your Well Pump Is About to Fail",
+    "activity_type": "new_blog_post",
+    "word_count": 1280,
+    "author": "Marketing Team",
+    "kind": "blog"
+  },
+  {
+    "slug": "tankless-water-heater-vs-tank",
+    "title": "Tankless vs. Tank Water Heater — DFW Cost Breakdown",
+    "activity_type": "new_blog_post",
+    "word_count": 980,
+    "author": "Robert R.",
+    "kind": "blog"
+  },
+  {
+    "slug": "emergency-plumbing-50-off",
+    "title": "Emergency Plumbing — $50 Off This Week",
+    "activity_type": "new_landing_page",
+    "cta": "Book Now",
+    "promo": "$50 off",
+    "kind": "landing"
+  },
+  {
+    "slug": "free-water-test-saginaw",
+    "title": "Free Water Quality Test for Saginaw Homeowners",
+    "activity_type": "new_landing_page",
+    "cta": "Schedule Test",
+    "promo": "Free",
+    "kind": "landing"
+  },
+  {
+    "slug": "septic-system-installation-guide",
+    "title": "Septic System Installation: A North Texas Homeowner's Guide",
+    "activity_type": "new_blog_post",
+    "word_count": 1620,
+    "author": "Field Tech Team",
+    "kind": "blog"
+  },
+  {
+    "slug": "water-softener-financing-zero-down",
+    "title": "Water Softeners — Zero Down Financing",
+    "activity_type": "new_landing_page",
+    "cta": "Apply Now",
+    "promo": "Zero down, 0% APR for 12 months",
+    "kind": "landing"
+  },
+  {
+    "slug": "burst-pipe-prevention-winter",
+    "title": "Stop Burst Pipes Before Winter: The 3-Step Checklist",
+    "activity_type": "new_blog_post",
+    "word_count": 740,
+    "author": "Marketing Team",
+    "kind": "blog"
+  }
+]

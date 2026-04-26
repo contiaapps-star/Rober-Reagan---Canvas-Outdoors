@@ -1,0 +1,37 @@
+[
+  {
+    "referring_domain": "txhomeguides.com",
+    "domain_rating": 52,
+    "first_seen_at": "2026-04-15",
+    "anchor_text": "trusted Saginaw plumber",
+    "page_url": "https://txhomeguides.com/best-plumbers-saginaw"
+  },
+  {
+    "referring_domain": "fortworthbiznews.com",
+    "domain_rating": 67,
+    "first_seen_at": "2026-04-12",
+    "anchor_text": "FlowCore Water Well",
+    "page_url": "https://fortworthbiznews.com/local-trades-feature"
+  },
+  {
+    "referring_domain": "homeownerblog.example",
+    "domain_rating": 33,
+    "first_seen_at": "2026-04-09",
+    "anchor_text": "well drilling Texas",
+    "page_url": "https://homeownerblog.example/well-drilling-101"
+  },
+  {
+    "referring_domain": "northtxchamber.org",
+    "domain_rating": 44,
+    "first_seen_at": "2026-04-04",
+    "anchor_text": "member spotlight",
+    "page_url": "https://northtxchamber.org/members"
+  },
+  {
+    "referring_domain": "plumbingweekly.com",
+    "domain_rating": 71,
+    "first_seen_at": "2026-04-02",
+    "anchor_text": "industry partner",
+    "page_url": "https://plumbingweekly.com/partners-2026"
+  }
+]

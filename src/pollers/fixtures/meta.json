@@ -1,0 +1,50 @@
+[
+  {
+    "platform": "facebook",
+    "headline": "Reliable Plumbing in DFW — Same Day Service",
+    "body_text": "Trusted by 12,000+ Texas families. Free estimates, no surprise fees. Book online in 60 seconds.",
+    "cta_text": "Book Now",
+    "image_filename": "fb_dfw_sameday.jpg",
+    "format": "single_image"
+  },
+  {
+    "platform": "facebook",
+    "headline": "Water Well Service — Saginaw, Tx",
+    "body_text": "Local water well experts. 24/7 emergency response. Talk to a real person.",
+    "cta_text": "Call Now",
+    "image_filename": "fb_well_emergency.jpg",
+    "format": "single_image"
+  },
+  {
+    "platform": "instagram",
+    "headline": "Tankless Water Heaters — $200 Off",
+    "body_text": "Hot water on demand. Lifetime warranty. Free in-home estimate this week.",
+    "cta_text": "Get Quote",
+    "image_filename": "ig_tankless_promo.jpg",
+    "format": "carousel"
+  },
+  {
+    "platform": "instagram",
+    "headline": "Drain Cleaning Special",
+    "body_text": "$99 drain cleaning — limited spots. North Texas families only.",
+    "cta_text": "Schedule",
+    "image_filename": "ig_drain_99.jpg",
+    "format": "single_image"
+  },
+  {
+    "platform": "facebook",
+    "headline": "Whole-Home Water Filtration",
+    "body_text": "Protect your family from hard water. Financing available. Free water test.",
+    "cta_text": "Learn More",
+    "image_filename": "fb_filtration.jpg",
+    "format": "single_image"
+  },
+  {
+    "platform": "instagram",
+    "headline": "Septic Pump-Out Reminder",
+    "body_text": "Avoid $10K septic damage. Schedule your annual pump-out today.",
+    "cta_text": "Book Pump-Out",
+    "image_filename": "ig_septic.jpg",
+    "format": "reel"
+  }
+]
