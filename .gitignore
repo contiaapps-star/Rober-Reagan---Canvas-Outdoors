@@ -6,9 +6,6 @@ dist/
 *.tsbuildinfo
 public/css/output.css
 
-/docs
-/resources
-
 # environment
 .env
 .env.local
@@ -37,4 +34,3 @@ logs/
 npm-debug.log*
 
 # private input materials (PRD, transcripts, screenshots)
-/resourses/

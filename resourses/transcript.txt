@@ -1,0 +1,377 @@
+[00:41] Speaker 0: Hi, Robert. How's it going?
+
+[00:43] Speaker 1: Doing well. Let me finish one thing real quick.
+
+[00:46] Speaker 0: Sure. Take your time. Not a problem.
+
+[01:33] Speaker 1: Alright. I'm with you.
+
+[01:35] Speaker 0: Here we go. How's it going?
+
+[01:37] Speaker 1: Doing well.
+
+[01:38] Speaker 0: How are you? Guys in North Texas. Is that right? Did I read that correctly? Yeah. Very cool. I'm in Austin. So Oh, no. Here today. There we go.
+
+[01:45] Speaker 1: Yeah. What what part of Austin?
+
+[01:47] Speaker 0: I am in the South near Manchaca. So if you're familiar with that.
+
+[01:51] Speaker 1: I Yeah. Used to live on Brody Lane and Davis. Yeah. Davis.
+
+[01:58] Speaker 0: Oh, yeah? I'm I'm on Slaughter And 1st, basically. So, like, not too far away. Okay. Yeah.
+
+[02:03] Speaker 1: You ever go to Arty pasta, that food truck?
+
+[02:09] Speaker 0: No. I've heard it's really good, though. It is really good. Okay. Yeah. I go to the Nepal Nepalese place that's nearby, though. Don't know if you like Right. If know about that place. Yeah. It's like, I I love the food. I moved here from the Bay Area. So Okay. Austin has I you know, you get you get I love that food truck culture. So I I make my way across, but pasta never I'll I'll take your word for it if it's if you think it's really good. I gotta hit that up. It's on my list.
+
+[02:31] Speaker 1: Yeah. It's it's some of the best pasta. I've spent a lot of time in Italy, and it's some of the best pasta I've ever had.
+
+[02:36] Speaker 0: Really? Yeah. I don't know. Bastard of a food truck is kinda weird, but I gotta do it. Right?
+
+[02:39] Speaker 1: That's kinda what my nits to pick with Austin. It's not enough of the good restaurants are actually in buildings.
+
+[02:44] Speaker 0: It's getting there. Like, there's more buildings coming up now, so, like, it's getting there, but I still like the trucks more. Like, it's more it's it's fun. Yeah. Very cool. Did you live out here?
+
+[02:52] Speaker 1: I did.
+
+[02:54] Speaker 0: Nice.
+
+[02:54] Speaker 1: Yeah. Worked at a I helped start a mortgage startup that ran for a couple years down there.
+
+[03:00] Speaker 0: Mhmm. Okay. Well, there you go. I think you're in a better business now. Like, it sounds like Yeah. Yeah. And so I'm I'm excited about this. I know you've been dabbling with AI. I don't know how much you know about what we're up to at Sagan with AI.
+
+[03:13] Speaker 1: I don't have any idea what you guys are up to.
+
+[03:15] Speaker 0: Wonderful. Let me give you some context first, and then I'd love to dive in and and start with, like, the stuff you already have been dabbling in, and then I can explain. I think it'll make sense how we can help. I joined the team recently. You know, it's my first it's my first few weeks in to lead the AI practice we're building over here. Okay. Are, you you're know, familiar with the Sagan recruiting. Right? Global recruiting. And I have you guys made any hires off the platform?
+
+[03:35] Speaker 1: We have. We so, yeah, we've my the guy that hired me is a big fan of Sagan for finding talent.
+
+[03:42] Speaker 0: Mhmm.
+
+[03:43] Speaker 1: We're not, as an organization, big enough to need a lot of hires. So I'm trying to kinda, like I was asking to terminate my membership. We've got one employee that we hired and just candidly haven't needed to get another one. But, they said that they had new AI practice, and I was I was curious to learn about that.
+
+[04:04] Speaker 0: Well, here we are. So what we've done is we we we think I mean, we we know this from practice now that global talent and AI agents are, like, brother sister. Right? They're very linked. They need to they exist hand in hand. And so, like, we've been getting queries. Can you I don't know, hire a person for this, but can you help us build some AI? We're gonna forward that formalize that into a practice. So with Sagan AI, you're able to basically build little we build these apps for you, the custom build for you to use cases and problems that solve your business, and we charge you basically one credit per build. So you can use your membership to both hire global talent but also build out AI agents. Right? And so
+
+[04:46] Speaker 1: How do I accrue a credit? You get them Keep in mind, I I didn't sign up for this in the first place. I just know it's been I've been paying for it.
+
+[04:53] Speaker 0: I and and and keep in mind, I'm not that familiar with the recruiting model quite yet. I'm I'm focused more on the AI side, but you get 10 credits, I believe, with your membership for the whole year. I can look it up for you very quickly. Okay. You have left. If you made one hire, you probably have nine left, basically. So you can use those credits now to make hires, but seems like you guys aren't that's not on deck right now or build AI agents, and your membership supports both. So, like, our model's like Costco. Right? We wanna be Costco for business services and
+
+[05:16] Speaker 1: Yeah.
+
+[05:17] Speaker 0: Leveraged business services that the service that get you leveraged. And one kind of leverage is, like, okay. We're gonna help you hire global talent that can keep costs low and help you get certain things done that are probably falling to the cracks right now. And another that kinda leverages, we'll build you AI agents, and those agents will actually do real work for you and and support your team and so on. And as long as you're a member, you can support the agents. Your agents are free to run. There's no subscription fee and and so on. And, you know, it's a good way, and we found this now that we've done 30 of them in the last month. It's been moving pretty quickly at various 30 and various stages of development, basically. Some launched, some in process. I can see how this is helping our customers, like, get another kind of leverage in the organization. So it was interesting for me to see that you guys are already thinking about this. That's cool. Like, I get all sorts of folks. Some people are like, yeah. I've used ChatGPT once and others that are, like, much more further down the development. So, like,
+
+[06:14] Speaker 1: I think I get sent you. Trying to finish as you were that's coming online was finishing a prompt to, like, a I feel like recording it? I feel like four There go. Or Codex bots coding for me right now. So
+
+[06:26] Speaker 0: Oh, see, that's my favorite kind of customer because you know what you're talking about, and then we'll build some cool stuff for you that lies on top of that. Right? So, like, let let's jump into it. I'd love to, like, understand what are your cloud bots doing. Let's start there. I'd love to what what business uses are you getting out of it?
+
+[06:39] Speaker 1: Alright. So we're a water well pump servicing business, so we don't really fit into the niche of strict plumbing and HVAC the way that those trades typically operate. And, so the ServiceTitan solution that you get off the shelf doesn't really address all of our operational needs. And and, candidly, as I've been business to business in this space, I've never seen anybody that actually uses ServiceTitan, the, you know, the blessed ServiceTitan gospel way. Everybody hacks around a clunky user interface. It's kinda it's it's the best there is, but it's not great.
+
+[07:14] Speaker 0: It's the Salesforce of your world, I've realized.
+
+[07:16] Speaker 1: It is. That's exactly what was gonna say. It's like it's just like Salesforce that everybody that uses it hates it, but nobody can find something better. Mhmm. And it's got a lot of good integrations. But so I I mean, I'll just show you what I've kind of what
+
+[07:32] Speaker 0: I've been working on,
+
+[07:35] Speaker 1: and where I'm I'm trying to plug in AI.
+
+[07:37] Speaker 0: In a couple doing this, like, as part like, as a side project? Like, are you do you have some help internally on it? Like, how how would
+
+[07:43] Speaker 1: it take you this entirely solo so far.
+
+[07:46] Speaker 0: That's great.
+
+[07:49] Speaker 1: In my mortgage startup, I did work on a lot of a a lot of yeah. Let me let me clean up my desktop environment right now. It's a little scatterbrained.
+
+[08:00] Speaker 0: Please.
+
+[08:02] Speaker 1: I will put you right there and you right there. And then bring you over here. And then I have a I have a four k monitor, so this looks too small.
+
+[08:31] Speaker 0: Oh, it looks great. Yeah. Mhmm. You can zoom in on it. That's not a problem.
+
+[08:37] Speaker 1: Yeah. Okay. Share desktop one. Alright. So, I was gonna say in my mortgage startup, I was working on, building RPA tooling to help accelerate the mortgage process with a big emphasis on, kind of meeting people where they are and how they already worked. Mhmm. So, like, one thing I want to use AI to do is I have our guys, when they need a restock on parts, they will post in this thread. Mhmm. Mhmm. Like, FloQor Warehouse and ServiceTitan to our truck that we call Slim, and he needs 25 PEX rings that are one inch wide. Right? And so right now, this is a a person automated, like, data entry process, and I want this to be run on AI.
+
+[09:26] Speaker 0: So some guy in the field needs a few parts they post in this this is Slack. Right? Exactly. Slack channel, and some other guy or gal picks that up from the Slack channel and inserts that in here. Right?
+
+[09:38] Speaker 1: Right. And so here's, I mean, the the UI that I've built to review it. These are all historical things that were loaded in. And the goal is to try and get this to build the actual transfer request in ServiceTitan. I'm basically creating an entire UI that uses ServiceTitan's APIs, like, the data at rest storage location Mhmm. And augments it with a few other extra things with the long term vision of just getting rid of ServiceTitan on
+
+[10:06] Speaker 0: the back. Plug it back into ServiceTitan once it's augmentation?
+
+[10:09] Speaker 1: Yeah. So it'll write back into ServiceTitan. I wanted to create the the record, the transfer record, reply with a notification here that the record's been requested, the record's been picked, and then let them know when the record is the you know, when they go in when it's been picked, they can go and get it and then receive it, and that closes out the the process. But using the Slack message that they post as a, like, status tracking, you know, we'll reply in a conversation thread to this about what the, you know, what the status is.
+
+[10:40] Speaker 0: Like, added approved stage movement, basically.
+
+[10:44] Speaker 1: Right. Another gripe, our technicians have to change trucks all the time. Mhmm. And keeping that in sync across, like, FleetPro and the inventory system is difficult. So I had it build this little UI to read and detect mismatches between who's driving you know, who's allocated what on Fleet Pro. And this is a little bit very service type and focused. Things I have in progress, this is not really built out yet, but I'm trying to get, like, a marketing spend dashboard to show a burn up line on marketing dollars per campaign. Mhmm. I think this is, this is this is dummy data down here that it just auto generated to show me something. But this is actually my my marketing budget, and I do have, like, an edit budget tool built out. But the idea here is I wanna see the burn up of my marketing spend and how many you know, and the tracking of my revenue and the tracking of my job count to see how I'm
+
+[11:44] Speaker 0: Yeah.
+
+[11:45] Speaker 1: Counter performing against marketing budget.
+
+[11:47] Speaker 0: What you're paying per lead per job too. Right?
+
+[11:50] Speaker 1: Mhmm. This is the one I'm kinda currently working on. I want to so in Texas, there are public records you can get on all the water wells.
+
+[12:03] Speaker 0: Mhmm.
+
+[12:04] Speaker 1: So I've got a I'll I'll show you that here in a little bit, but I've got, like, that database. Got something working for that. And then there's public records for county, like, who owns what property.
+
+[12:18] Speaker 0: Mhmm.
+
+[12:18] Speaker 1: And so I'm trying to get an interface that will pull through my my customer database and detect any ownership change so that I can then advertise with direct mail to new owners. That's amazing.
+
+[12:30] Speaker 0: That's lovely. Perfect.
+
+[12:32] Speaker 1: And then, eventually, I'll also get into plumbing permits and, you know, respond to people that I see have pulled plumbing permits that are in my my zone to try and, like, advertise and and take that business. This is less consequential, more of a morale thing, but I want this to auto generate, like, a an m three u, like, TV feed that I could just put on my TVs in my shop showing, like, the a dashboard. And when somebody gets a when it detects somebody made a sale, like, shows splash screen of their face and, hey. Good job, Jonathan, for and
+
+[13:07] Speaker 0: So the Gong goes off?
+
+[13:08] Speaker 1: Yeah. I've also got so this is the the water well information.
+
+[13:18] Speaker 0: Are you building these with cloud or are you using what AI are using for this?
+
+[13:22] Speaker 1: Combination of cloud code and Codex when I
+
+[13:25] Speaker 0: Hosting them online somewhere like Railview or something.
+
+[13:28] Speaker 1: Yeah. So they're hosted on in Google Cloud. Cool.
+
+[13:33] Speaker 0: Very nice.
+
+[13:34] Speaker 1: Yeah. Here's the Well database I was talking about. It downloads, like, this record from a a spreadsheet. It pulls a spreadsheet and adds records, and then got a little report producer that is gonna save this into ServiceTitan for every well that is in our database or in our customer record that we service. Right? So,
+
+[13:57] Speaker 0: yeah. I think this is this is awesome. Like, you said, you're clearly, like, beyond dabbling here. You're, like, you've been returning tools that you're doing for yourself.
+
+[14:06] Speaker 1: Yeah. Awesome. And that's
+
+[14:07] Speaker 0: my favorite customer because that's where we can be really dangerous and fun, like, can get really fun. So, like, our philosophical approach is that like, I I I'm assuming you're doing this, like, on your like, outside of your your core responsibilities. Right? Because, like, no one's job is to build AI tools yet internally. It's just
+
+[14:24] Speaker 1: like Yeah. I mean, it's I'm the CEO, so all of the it's it's all my responsibility.
+
+[14:29] Speaker 0: There we go. And so we my my my vision is that you give us, like, an idea, and then we're able to run with it. And everything we build for you, and my goal in this call is to, like, find one problem and re understand that. Right? And it's it's just one credit to build it out. So it's, $500. Right? And so it's Yeah. It's a very good way to build it, and it's on subscription. As long as you're a Sagan member, you are you can use your app after you build it out for as long as you want. And the way we charge you recurring is, you know, if you use it, we just if you use LLM for if your app uses, like, LLMs, for example, we just mark up 20% on top of the LLM fee. So the more you use it, the more you pay a little bit. But it's really much more cost effective than buying a subscription or and then and and, you know and and it's also custom built for you. And in your world, like, I I have deep empathy. I I spent twenty years as a product manager, so starting companies and building products, basically. I have deep empathy for, like, hey. It's not built for us, ServiceTitan. So, like, that's that's that's a good use case. Right? Like, I know you need a ton of these internal tools. So having said that, I'd love to understand, like, is this an interesting model for you? Like, would we be a good partner for you? You could tell us what to build, and we'll go build it and make sure it works for you and support it.
+
+[15:38] Speaker 1: So I'm I'm wondering, do you what type of products do you typically build? Like, an agent that does a an office process?
+
+[15:47] Speaker 0: No. Let me give you a small example that came to my mind as you were talking through your marketing agent. Right? Like, you're pulling leads from well from, like, public well records, from public plumbing records, and so on. Can I show you? Let me show you.
+
+[15:58] Speaker 1: Yeah. Absolutely. I mean,
+
+[16:00] Speaker 0: I'll start. I'd love to show it to you. Give me one sec. I'll pull it up here. But I'll talk you through it. So this this customer came to me, and they're in the they're in home services business. They're in the lighting business, subscription lighting. And so I didn't even know if you do that, but, like, beyond Christmas lights and stuff. This is, like, track lighting, security lighting. And so they want an easy way to show you. And now we do the same thing for, like, a pool developer. So, like, like, this is how interesting it gets. Right? Like, idea
+
+[16:26] Speaker 1: that stop oh, there it is. I hate all the different
+
+[16:29] Speaker 0: Ugh.
+
+[16:30] Speaker 1: Video platforms, all their different button arrangements.
+
+[16:33] Speaker 0: They're all slightly as they're they're all slightly miserable in their own way. Right? Yeah. Kinda like SaaS. Kind of like SaaS. Exactly. I'm pulling up railway. Where is my railway? Hang on. Got so many of these apps floating around now. Give me bear with me for a second. I'm just Sure. Alright.
+
+[17:05] Speaker 1: What what type of product manager were you before?
+
+[17:09] Speaker 0: I built companies. I built a gaming company in Singapore, sold that. Then then I start then I got into b to b, built a a company called Influitive where, we built advocate marketing software. So referrals and reviews and references and things like that. So that's, like, very large b to b companies. And that got acquired, and then I, in between, started a global assistant company too. So it's been all over the place. And so built a bunch of products across b to b, essentially. Oh, here we go. Okay. Share screen. You should be able see it in a quick second. So like I mentioned, they're they're, like, a home security lighting thing. Their problem was look. We are in the field. Sales guys go to homes, and they're like, I wanna show you what your phone can look like with a security with a lighting, but they have no way to visualize that. And then, also, we wanna do marketing. Right? And so they wanted to send postcards to homes. And the idea was if I can show you what your home would look like in the field, then I can also generate postcards and send them to homeowners by mail. So we build them this tool that lets them do exactly that. You can put a single address in here and say, I wanna show them this home with this, with with these kinds of lighting styles, or you can go upload a CSV of, like, 100 addresses. And the next step they want us to build, and that's the next you can build on top of these agents too. So the next credit they want to use is going to be to, like, connect this directly to the postcard software. So, like, I can just trigger postcards from here too. But for now, it's a CSV that goes up and down. You can put an address in here, but I'll show you some recent runs that we did too if that would make sense. So, yeah, you know, it'll this is not a great home demo trying out. We tried we've been trying homes that are like this is a celebrity's home, so, like, this is, like, censored, so you can't get that. That's the the limitation. But, yeah, here we go. So, like, you it'll it'll take a picture. You give an address. It'll find a great picture of the home's exterior. It'll look at Zillow. It'll look at realtor. It'll look at Google Street View images, and then it will use AI to redraw that home, like, decorative, like, shrubbery and make the grass look nicer a little bit, like, even things up. Change the angle too. Right? Yeah. So it'll redraw it, and then it'll create, like and that's that's a permanent lighting solution. So it spaces out lighting in a certain way, and that's their security lighting. So it's a little bit, like, more more lit up and more spaced out. Yeah. And then they have Christmas lighting too. So now they can demo what this would look like. And, you know, you can see how, you know, in the Christmas lighting, it's a little bit different. Right? And so it's like, this this prompt generate this, and now this is postcardable and sendable and all that good stuff. There's a watermark here. You can't see it. It'll print out, like
+
+[19:49] Speaker 1: Yeah.
+
+[19:49] Speaker 0: Representation only. It'll watermark it and stuff as well. So it's cool. Like, it'll like, it it solves a big problem for them, and it works across the board. So it takes any interest in and does that for you. Right? And and so this like, you know, like, when they came to us and the reason I wanted to share this one with you in particular was, when they came to us, they were stop the sharing. They had a similar idea as you did. Right? Like, we got this access to this data stream, essentially. Their stream was whenever we do a job, we want to be able to tell homeowners around that neighborhood too about that job, and we can get that off Google Street View images. And they could also, like, take those images and do something with it. They build some automation, but they had an end to end connected it into, like, hey. It pulls out these postcards. It got and data comes in. And that's what we're really good at. Right? We're taking that white coded thing and making it, like, doing that final 20% or the 400%, doesn't really matter. Yeah. Making that useful for you internally. So you can just watch that flow. And that's why I started this call. Like, I love it when CEOs are white coding because then we know that they they see the opportunity. But I know you struggle with, like, actually getting this connected end to end. And, typically, those issues are and I've seen service titan. We do a lot of work with service titan too. Lot of renewals and reminders and things like this, like automating invoicing. Yeah. Those flows, we've done a lot of those for service titan specifically. The the the detail the the the issues always come up with the integrations on both ends, not the middle not the AI layer in the middle. Yeah. So, anyways,
+
+[21:21] Speaker 1: it's It's all I mean, that's it's it's crazy how much of the work is, like, the hosting platform and the integration on both sides and, like, the actual technical
+
+[21:32] Speaker 0: It's like I don't know much about well drilling, but I assume that there's a lot of work that goes into, like, finding a spot and putting the infrastructure of the well on top, and then the digging is the easy part, right, once you have all that sorted out. I think the same thing with AI applies too. The digging is the easy part. Right?
+
+[21:47] Speaker 1: Yeah. So I I I have a similar, like, pitch builder type product product that I'm working on where I want to give it an address or do, like, a fuzzy search for an address, a customer name or location name from our ServiceTitan database and then pro have it build a pitch for a new well. And that would be looking at like, the inputs would be the location, whether that's a customer address or or just the raw address. And then it would create it would take the well into like, the use of the well, if it's gonna be domestic water
+
+[22:24] Speaker 0: Mhmm.
+
+[22:25] Speaker 1: Or irrigation or or whatever. And would then look for, like, the 10 surrounding wells, five that are just the nearest, and then five that are the nearest of the same type.
+
+[22:36] Speaker 0: Mhmm.
+
+[22:37] Speaker 1: Look at the depth of those wells, the depth of the pump, kinda build a little table. So one one page of this, like, pitch package would be, like, a plan view or a map view with some statistics. The second page would be a plan view of the property where we could highlight zones where the well location can go. We have some standoff requirements from, like, septic tanks. Then we have access requirements for backing, like, a semi truck size rig into somebody's yard. So you gotta figure out those logistical issues. And then the third so that would be, like, a map view where the user would be able to, like, mark where trees are and the fences are and stuff like that and the home, flatbed stuff. And then the third page of this, like, auto generated package would be, an elevation view of a water well just to kinda educate the customer on what is actually going down the hole. So it's like surface of the ground at the top and then, like, a an abstract view of, like, the the well shaft in the case
+
+[23:40] Speaker 0: of already using AI to generate this to generate these assets, like, manually maybe today?
+
+[23:46] Speaker 1: No. We're we are not generating these assets at all. We're just doing a lot of talking and abstract discussion, and that's candidly, for some of our commercial clients, they want to see a, you know, a blueprint view. Right? Like, a the fancy engineering drawing with the the footer at the bottom with your logo and who's prepared for it. So I'm trying to carry over that.
+
+[24:10] Speaker 0: We could certainly help you with that. That would be I think that could be one project. I wanted to get zoomed out view. I'd love to identify, and I just showed you one example because we've done bunch of things that are across the board.
+
+[24:22] Speaker 1: Oh, I have I have about a dozen things that Right.
+
+[24:24] Speaker 0: Let's find one really great thing that solves the problem for you today so that when I come to you and say, let's integrate this into your system, you know, like, it's a nice to have. Also, like, it I I really wanna solve a real problem for you. It could be something you already worked on. We can complete it. Or it could be something that you haven't worked on that's on your list really high and you know it's a business problem. You Can identify one thing from everything we've talked about that would be a good one to focus on?
+
+[24:45] Speaker 1: It's hard for me to prioritize.
+
+[24:49] Speaker 0: We'll do them all for you eventually. Like
+
+[24:51] Speaker 1: Yeah. I mean, the so, like, I want to get a lot better my organization get a lot better at data hygiene. Mhmm. So that would be, like, after a
+
+[25:04] Speaker 0: Yeah. I can see you putting all the data out and doing things to it and plugging it back into service type.
+
+[25:09] Speaker 1: Yeah. Giving feedback to the users that were involved primarily through Slack. Like, hey. Aiden, just saw you closed out this job. Need you to go in. Like, I have some questions because you didn't tidy up your records.
+
+[25:21] Speaker 0: I like the Slack procurement thing that you're doing.
+
+[25:25] Speaker 1: I Yeah.
+
+[25:26] Speaker 0: Feel like we could do a really good job on automating that thing entirely so it picks it off Slack. They just you know, it doesn't change their workflow. Right. It treats every message as a ticket, decides if it needs to do something on it or if it's, like, something you ignore. Actually, the other stuff happens in that thread too. But if it's a parked ticket, then it starts a ticket in your system and then does the manipulation, adds that to ServiceTitan, brings the update back, and as it moves to service titan, brings those updates into as threads. And that could just be end to end. Right? So then does that does is that a good one to start with? Like, I would think that would be a Sure.
+
+[26:02] Speaker 1: Best one. I mean, like, I've I've I've got a little bit of progress made on that one already. Mhmm. Yeah. We could yeah.
+
+[26:09] Speaker 0: My lens is that you're making progress on the ones that you really want to do first. Right? And so Yeah. That's the case, we'd love to finish one. Otherwise, we start a new one, whatever you whatever you prefer.
+
+[26:18] Speaker 1: Yeah. I'd say I did the I looked at these AI coding agents as free dev labor that I can whiplash any which way, so I did not sit down and do a disciplined road map or prioritization here. I just kinda, like, vomited good ideas and then started telling I I mean, I vomited good ideas out, and I said, organize these into, like, projects. Mhmm. And, let's just get started on all of them. So I'm a little bit shocked that I'm at the level of maturity with several projects at the same time. But Mhmm.
+
+[26:51] Speaker 0: No. That's good.
+
+[26:52] Speaker 1: I mean, that's the shocking advantage of AI. Yeah. So all that's to say that, like, I am making progress on some I'd say, let me like, I guess, let me take a step back and look at it from just the business, what the business needs. I need to find I need to level up, my SEO and my Google Ads performance. So I want to actively scan, competitor businesses and their websites to understand how they're ranking for where they're ranking. And, actually, hang on. Let me Interesting. My, SEO check-in is actually in two minutes. Let me tell her I'll be a little bit late.
+
+[27:34] Speaker 0: That's a that's a very interesting use case too.
+
+[27:38] Speaker 1: Yeah. So I I have a big I believe that AI is gonna destroy the digital marketing space.
+
+[27:50] Speaker 0: Oh, yeah. I mean, I started an automated outbound thing a year before ChatGPT, like automated outbound marketing. And it was really great because I've been doing that. Like, I've been doing that as a service for, like, years, and then it was it was just great. And then Yeah. JGPT hit now. And I knew immediately, like, hey. This is gonna deprecate their entire channel massively. Right? Because everyone's gonna be able to send emails at scale, and then that's gonna end and be personalized, and it's gonna clog up our inboxes. So I think every motion is changing.
+
+[28:16] Speaker 1: Yeah. So I I just want to iterate on my SEO presence a lot faster than and a lot more smart than I think a a person would do.
+
+[28:26] Speaker 0: Yes. Right? Interesting. So That could be an issue.
+
+[28:29] Speaker 1: Getting, you know, getting in a a blog article maybe once or twice a week, really focused on important keywords, identifying what those keywords are for both Wells and Plumbing. In the digital marketing space, I've struggled to find, like, really truly good advice and truly optimize, like, paid campaigns, or for truly performing paid campaigns. Mhmm. And then I need to get a lot more demand to figure out how to penetrate into the plumbing market. And I need that needs to be, like, almost daily iteration of something to figure out how I can get traction there. Have one plumber, and he's he does, like, a job a week, and I need him to get to, like, 15 jobs a week Maybe 20 before I can, like, really credibly go higher with one or two more and then start that process, keep keep growing, you know, pushing the snowball downhill.
+
+[29:18] Speaker 0: How do you get plumbing jobs today? How do you guys get plumbing jobs today? What are you doing today? Is it just referrals?
+
+[29:23] Speaker 1: PVC marketing and referrals from our Well clients. So there's the referrals do alright. The PVC marketing is just hard to get traction here in a in a market this big.
+
+[29:35] Speaker 0: Since your your job your main your main goal is demand gen and, like, growing the business Yes. I'll just tie this back to what you said earlier around the well permits and plumbing well, plumbing permits too, like public plumbing permits.
+
+[29:49] Speaker 1: Yeah. I see that more as, like, a long term sustaining gravy type demand generation. The core is gonna be finding people in urgent need of services, and that's almost gonna be always be either AI, you know, whatever the AI version of SEO is or good old traditional SEO. People don't typically most people don't see a plumber name and think, that's definitely gonna be the plumber I call if I ever need a water heater.
+
+[30:17] Speaker 0: Yeah. Unless it's, like, opportunistic. Like, hey. We Right. We know you're about to dig a well. And so, like
+
+[30:22] Speaker 1: It'll help drive people to your PPC ad when they have a water heater mishap. Yep. But it's not gonna just keep them from going to the Google search. Right? Like, the billboards you see around town are not it's not anchoring in your mind that, oh, I'm gonna use Reliant Plumbing.
+
+[30:38] Speaker 0: Yes. This is the reason why you only see, like, lawyers on the highway. Right? Right. Basically, because that's what you're
+
+[30:43] Speaker 1: gonna say. So when you go to a forum, you'd say, oh, okay. That's fine.
+
+[30:46] Speaker 0: Well, I mean, if you have a crash here on the highway,
+
+[30:48] Speaker 1: then you need to That oh, yeah. That's true. Yeah. I I
+
+[30:50] Speaker 0: I'm I'm not advertising medication on the highway. Right? Yeah. Yeah. I'm not gonna stop it. Yeah. It makes sense. Cool. Okay. That's that's good context. So we could do something in the domain of, like, competitor tracking. Like, I feel like with SEO, you don't wanna automate well, you could. You could automate the creation of the articles and publishing too, but I feel like you want to, like, think through that a little bit more. But, like, if you can get to a point where let's say, I'm I'm not painting a picture for you. Right? And this could be, like, an app that we built. You have a set of competitors and a set of keywords that you're tracking. Right? Those could be competitor keywords or just regular keywords. We could monitor competitor ads. We could monitor competitor websites, right, and backlinks and all that good stuff. Mhmm. We could flag new articles that they're publishing, right, in real time. So this thing runs, like, every day. Yeah. We can flag new ads and launching again in real time. I'm I'm I'm assuming you when you say ads, you mean both Google, but also Facebook and Instagram. Right? Like PPC stuff.
+
+[31:48] Speaker 1: Yeah. Face better ads. I mean, OTT. Yeah. If you if you if that's even possible to monitor.
+
+[31:54] Speaker 0: Less so. Well, maybe it is. The more I'm sure it is at some level, but, like, I feel like we'll have like, I know Facebook, Instagram, and Google are very monitorable. Yeah. I'm sure there's someone tracking ODT, but then I'm also sure that that's gonna be really expensive. Right? Because that won't be,
+
+[32:10] Speaker 1: like mean, maybe you'll stream all the time?
+
+[32:12] Speaker 0: No. I I I well, they're not. They're they're probably that data is probably, like, coming in at enterprise tier thing, like, for folks. Like, maybe maybe I find something good. Maybe I don't. But Yeah. I feel like you could bring that
+
+[32:21] Speaker 1: Oh, gee. But that's just kind of a wish list. Like, I'm I'm just wondering what
+
+[32:24] Speaker 0: We could probably try to do that. Look at you as the
+
+[32:26] Speaker 1: AI domain expert who knows what is out there and available.
+
+[32:30] Speaker 0: Yeah. I'm sure it's available, but I'm also sure it's, like, some sort of, like, Nielsen OT tracking for, like, enterprises. Right? And so we'll we'll figure that out. But we'll track those competitors. We'll bring in we'll alert when they launch new ads, and we'll alert when they create new pages for SEO, right, on their website. And if it's a new page in the website, then we'll figure out a topic, what they talked about, you know, make sure that we get that choose too. And then that's an input for your SEO team, which can be your next agent, which is like, hey. Now pick this up, publish to our website, right, when when something comes through. And then also, like, with this, figure out new ideas and publish those too.
+
+[33:05] Speaker 1: And Yeah.
+
+[33:05] Speaker 0: That's one set. Another thing we can do over there is maybe, like, grab more reviews. And, like, every time you have a successful well, you're sending people in the field. Right? Yeah. Have them take a couple of pictures and send that to us on Slack. Boom. We have an article. Like, we grab the sales site in history. We have the well thing. We have a review or something. Right? Like a like a like a case study on this well on our website. Right? So now when you're searching for, like, off that that's how you get LLM juice. Like, if you got, like, 25 case studies on, like, North Texas water wells and someone searching on Chattypedia goes, hey. Who's the best at digging wells in North Texas or, like, in my area? Boom. Right? Like, it'll it'll it'll it'll know that context from all the stories it's hearing. So, like, agent one is collects this context, massages it for SEO, sends that out. For ads, new ads, maybe even suggest, like, headlines for us and things like that. So your ad didn't grab that and create new assets. Maybe you create assets too. How far do you wanna take it? Like, do want them to go like, hey. Here's, a literal ad you can launch that's very similar? Or
+
+[34:10] Speaker 1: I would like it to prompt me with ad copy and, you know, keyword optimized things to start pushing out, like, blog posts. I'd love to get, like, twice a week at a here's three blog posts you could possibly run with, where and then I could, like, refine refine it it with with a a a chat agent or something. And then same with ad copy. Like, here's what's performing. Here's what's not. Here's how we suggest you change. Although, I don't I don't know if I I think you could just say, like, click here in a PPC ad, and that might be good enough to actually traffic. I I don't know how how valuable the PPC ad.
+
+[34:45] Speaker 0: Depends, like, PPC ads, not so much. On Instagram and meta meta stuff, I'm assuming.
+
+[34:50] Speaker 1: Yeah. It's gonna be a lot more relevant.
+
+[34:52] Speaker 0: So those are it really depends. It's a good point. Totally.
+
+[34:54] Speaker 1: Yeah. And then
+
+[34:57] Speaker 0: Yeah. I think when I say ads, I mean, it's yeah. It's not worthwhile tracking Google Ads as much because, like, it's the same ad, and you're just bidding more. Yeah. Maybe you can track some stuff around it. Like, you can track competitor pages make more sense there because of that bidding against the
+
+[35:10] Speaker 1: pages. But The, like I said, another kind of parallel track on the marketing side is remarketing the people we've already been to. Right? So following up on leads and estimates. Right now, the service titan like, the auto every system I've ever seen is always a little bit too rigid to the point where you you send out notifications prematurely.
+
+[35:32] Speaker 0: I just built an agent on ServiceTitan for one of our customers, and they had a similar problem. They do boiler maintenance. Right? And it's like in in, like, in Atlanta. And and a different one that also built out on service tech in last week, which does ice in Memphis. So, like, ice machine service in Memphis. Okay.
+
+[35:48] Speaker 1: Well, like Yeah. Refrigeration. Yeah.
+
+[35:49] Speaker 0: Refrigeration. Specifically, like, ice machines.
+
+[35:51] Speaker 1: I did some of that in my last job. Yeah. Ice machines are
+
+[35:55] Speaker 0: And so these are things that require, like, regular service. Right? So if you get a customer coming in, chances are three months, six months. It and and it takes field notes of what kind of equipment there is. Some equipment needs regular service every three months. Some needs service every two years. So this agent picks up the job from service type and examines what and it goes historically, looks backwards, picks up the jobs and says, oh, yeah. This got three things here. Let's queue up a service for them for this because it's been, like, six months already for this part. And these guys have this boiler that needs every two years, and they're, a light use facility so that, you know, they don't need that service that much. The hospital maybe needs it every six months. So as a context, pulls that in, creates, a Kanban board of tickets, right, for the marketing team for the for the sales team with, like, hey. Here's all the opportunities, and then I and assign them to a human to pick that up and do the follow-up. Now next step, they're gonna take that and then do follow ups too. So it's, like, very context aware. It's pulling out opportunities from sales ServiceTitan and creating opportunities on a board for Put it at this point eventually. Right? And then now we can also, like, probably and then we have a draft in there of, like, the first message you can send. They'll never copy paste that message, send it out. And the reason they're doing that is because all of them are, like, account managers. So they have, like, a bunch of those folks, and they wanna send it through those people. Next step would be to connect their emails into our system and just send the email automatically. Right? So Yeah. That's actually built out for them. It's just a checkbox. They can uncheck that box, and I'll start sending it automatically and connect the accounts in. And so that could be really interesting too. Right? Like, that is an example of, like, what we've done there.
+
+[37:19] Speaker 1: I mean, what so in my use case, what I really wanna do is, we'll frequently leave a house with a a question and not a full estimate written. So we'll we'll do a service call. We'll identify that a pump is broken. We'll pull it, and we'll go see if it, you know, if it needs to be replaced and see if it's under warranty and stuff like that. So there will be a half baked estimate that's not ready to go. So what I, like, I wanna do is insert a little human in the loop, reach out to the technician on Slack and say, you know, hey, Aiden. You wrote this estimate three days ago. It's time to follow-up. Is it ready for follow-up? And give them, like, a, you know, in
+
+[37:54] Speaker 0: What do you mean for Slack? Has it been sent if it's half baked, it's not sent out yet. Right? Or you would follow-up on the sending from
+
+[37:59] Speaker 1: Well, so the there's there's built in automations in ServiceTitan that will automatically send the estimate to the customer and say, hey. What do you think about this estimate? Right? And the customer we have customers who go click and accept, like, a $0 estimate for a repair because it hasn't been finished yet. Right? And
+
+[38:15] Speaker 0: Okay.
+
+[38:16] Speaker 1: What what I wanna do is put a human in the loop saying, hey, Aiden. You need to go fix this estimate because it has to go out soon. Then And have agent, like, drive Aiden through that refinement flow and then have him clear it for release and then have just having a bot watching our estimates and actually driving them to completion.
+
+[38:35] Speaker 0: Which one do you think is a bigger problem? The ad the monitoring competitors, ads, and SEO, or do you wanna start with
+
+[38:42] Speaker 1: I'd say monitoring the competitor ads.
+
+[38:45] Speaker 0: I think we build you something over there first. But we can do all of these. Like, it'll be really good. Like, I'm sure as you're building these out, like
+
+[38:51] Speaker 1: Do have a notetaker running on this conversation?
+
+[38:53] Speaker 0: I do. Yeah. We're recording this. Because I'm a I'm gonna I'm gonna send you I'm gonna send you a copy. I will send you a copy of the transcript of this conversation.
+
+[38:58] Speaker 1: Yeah. I might have forgot to turn mine on. Okay. You're good. What else?
+
+[39:05] Speaker 0: Part of me is just trying
+
+[39:05] Speaker 1: to vomit into the note takers that I have a
+
+[39:08] Speaker 0: Well, I I think I I I want you not do that right now. I want you to do that. Like, do that and, like, just as you have ideas and, like, you know, I have a good one in the shower, I put it down on paper, then, like, I'll I'll just do that. And then we can go through that list, but I really wanna hone in on, like, doing a really good job for you on the first one. So that you can then have the confidence to give us a lot more of these. Because you got nine minutes.
+
+[39:28] Speaker 1: So I'd say SEO or, you know, digital marketing velocity is where I really need help. Like, that's been the constant drain on this business is digital marketing.
+
+[39:38] Speaker 0: Who's the user on the other end? Who's your marketer? Who's gonna be picking this up? You are?
+
+[39:43] Speaker 1: I mean, I I have an agency for PPC, and I have an agency for website SEO stuff. I don't have anybody for social, but I'm gonna try and probably pick one of these two agents.
+
+[39:53] Speaker 0: Their social media post too. If you're doing this, we can monitor social media as well for them. Right? Like, I'm sure some of them have, like, socials. How many competitors are we talking about here?
+
+[40:02] Speaker 1: On the water well side, just a few. On the plumbing side, I mean Lots. Pick the how many you wanna you wanna monitor, honestly.
+
+[40:11] Speaker 0: How many would you want to monitor on the on the water well side? I'm sure it's, like, 10 maybe. Right? Is that where the is that
+
+[40:16] Speaker 1: the Like, you'll honestly, to find 10 that are worth emulating, you'll have to go pretty far.
+
+[40:22] Speaker 0: True. And then on the plumbing side, you don't wanna track all of them. That would be very long tail. So we got Yeah. It'd be
+
+[40:28] Speaker 1: very long tail. Ten's probably more than good enough to to actually see who's winning. You know, I probably wanna get six or seven of in the local area. So, like, maybe two or three of my size to see what they're doing. Well, at the size that I wanna be, which is about 10 tax. Another, like, four or five at the, like, the mondo $100,000,000 a year business size to see what they're doing, and then maybe two or three nationally just to kinda see what
+
+[40:56] Speaker 0: What they're doing. Farming for ideas of what's getting Farming for ideas. Yeah. I like that. I like that being the framing. Like, this is, like, farming for ideas, and we got our core business, which is, these water well companies that are gonna be, like, very competitive, and we farm them for ideas. But then we also enroll like, we don't have to be a full set plumbers. Right? It's, like, the 12 that we think are really interesting. Maybe the companies that have, like, well other services, b to b services too, so a little bit more like us as well. Yeah. Perfect. And then we bring those the new published post in, so we monitor their websites that give us ideas for SEO, which it should be fleshed out enough that you can really plug them into the next agent and just build that thing and publish it. Right? And that's gonna be the next step that we do there. And then for, like, ads for SEO, I think we can track how much they're bidding and if that has changed, if their bidding mechanisms have changed. Yeah. And if they're or we can also track, like, new backlinks, I think, for SEO. So I I'm gonna add that into the transcript too. And then for Meta and Insta, we can track new ads being published. Yeah. Right? So you can see that in the library. And that gives you
+
+[42:00] Speaker 1: I'd love to just see the organic efforts too. Like, I'm I'm I might try and get into, like, trendy dance videos too. I've got a a guy on my team that loves making TikTok.
+
+[42:09] Speaker 0: TikTok? Interesting. Right? Okay. Yeah. That makes sense. Like, if you could do, like, YouTube shorts and TikTok specific specifically, that could be interesting too.
+
+[42:17] Speaker 1: Yeah. Just finding those things that are are going viral in the trade space so we can just emulate really quickly and kinda jump on the viral bandwagon.
+
+[42:25] Speaker 0: I think that's interesting too. So, like, basically, this is our, like, marketing content sensor, essentially.
+
+[42:30] Speaker 1: Yeah. And the nice thing about marketing, particularly digital marketing, is everybody has to expose their strategy online. And so it's it's infinitely copyable.
+
+[42:38] Speaker 0: Yes, sir. That's right. There's no good ideas in marketing. That's why every channel deprecates over time, and it's like a treadmill, which is the beauty of the Google business and the Facebook business. Like, that's the Yeah. Like, you know, it always flows up eventually. All your margin flows up to it. So if you don't keep innovating, then you're just spending more. And so I think that's that's that's why it's so you nailed it. That's exactly why it's so important to monitor this stuff. I think I have a lot over here. So I I'm thinking of it as, like, our marketing sensor. It, like, monitors a bunch of accounts, and those accounts are not competitors. It could be, like, here's a trades person who does really cool stuff, and then here's a search keyword for tradespeople that we wanted to monitor on TikTok. Right? We bring that in and organize that into, like, a board where you get, like, hey. Here's, like, all the action that's happening. And then you can take that, and it should be, like, consumable in a way where you can just copy paste that into another agent and start doing things with it. And I want you guys to do that so that you can bring that back to and say, hey. When this happens, do this. Like, create a ticket and an article so I can just review it and say publish, and that publishes our website. And so Yeah. These opportunities will become, like, tickets eventually that you can do things with in the in the next agent. But I think that's a that's a really solid chunk that we can tackle for you. And that's a lot
+
+[43:47] Speaker 1: of Honestly, like, to put it succinctly, I can I'm got experience digitizing and streamlining operations on an RPA level and stuff like that, but I'm terrible with the marketing. If you can help me, like, apply AI to marketing to really get sophisticated on how we on what we're generating and how we're finding, you like, demand, that would be the perfect complement to what I'm doing operationally.
+
+[44:09] Speaker 0: Yes. I think that makes and I have a of experience doing marketing stuff. Like, that's the stuff that I've been doing for my that's most of the companies have been in b two b last fifteen years of gaming thing. Okay. Sounds great. But the key is it's a dashboard that we can then use. It's I I don't want us to, like it's not we will get use out of it as much as we put into it to start with, and then we can use that and get agentic stuff going on top of it. But at the very start, I just wanna make sure, you know, we'll we'll have to do take some action on these activities. Right? And it seems seems like that's front and center of what you're thinking about. So I I have confidence that we'll actually make this thing useful for you. I think everything I need over here, I'm gonna have some questions for you. I'll give you some I know you gotta go for another meeting, but what you're gonna get from my system is I'll send you this copy of this transcript too. I'll make a point to make sure that someone in the team follows up. But I'll also send you a email with, hey, Robert. We're gonna build this for you. Right? And it's, like, bullet points
+
+[45:04] Speaker 1: and Specific product. That's right. I get it in a
+
+[45:07] Speaker 0: real time. Give you a thumbs up on it because the thing is once we start that, that's when we, like, go, like, okay. Great. Now we locked in a credit. One of our AI engineers builds it out, brings it back. We have a whole process that goes, and it's pretty quick after that, like, a week or two max. Like, we're currently backlogged with a whole bunch of projects, but I'm gonna rush this one through. I really wanna do more marketing stuff too. Like, we can build this agent. A lot of the stuff is, workflow, and you're already ahead of the curve on that. So you already have r you know what RPA is. That's great. Yeah. Because it's, like, about 30 conversations. Zero business owners knew what RPA is. So so I think it can Coming back
+
+[45:36] Speaker 1: in the day, I was actually pushing the code to automate it. So this is this is a life for me to have somebody do it for me.
+
+[45:43] Speaker 0: That's the life. That's right. Yeah. And and look. I mean, I you also like, one thing that's been implicit in our discussion is agents break down when you have to bring data in and data out. Right? Like, the thing in the middle is the easy part. You can tell a lot it'll do it. And then, yeah, make I can make it look prettier maybe and all that stuff, but that doesn't really matter. Like but the integrations on both ends is very complex, and that that's still software. Right? It's not it's not AI. It's, like, very API. So okay. I will send you that email, and, please give me a thumbs up on it. And, let's build this out, and then we'll build your prototype, share that with you, and then we can get you onboarded very quickly after.
+
+[46:17] Speaker 1: Okay. Awesome. Let's get started. I'm excited. Awesome. Thanks, Robert. Really appreciate it. Thanks.
+
+[46:22] Speaker 0: Take your time. See you. Bye.
