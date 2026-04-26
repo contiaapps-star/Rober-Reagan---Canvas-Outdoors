@@ -116,6 +116,7 @@ async function runPollerSet(
           competitorId: c.id,
           competitor: c,
           dateIso: opts.dateIso,
+          db: opts.db,
         },
       });
     }

@@ -16,6 +16,19 @@ const TEST_ENV: Record<string, string> = {
 for (const [k, v] of Object.entries(TEST_ENV)) {
   if (process.env[k] === undefined) process.env[k] = v;
 }
+// Force provider keys (override empty .env values) so live-mode tests reach
+// MSW. These are picked up by env.ts at module import.
+const FORCE_PROVIDER_KEYS: Record<string, string> = {
+  ZENROWS_API_KEY: 'test-zenrows-key',
+  APIFY_API_TOKEN: 'test-apify-token',
+  YOUTUBE_API_KEY: 'test-youtube-key',
+  SERPER_API_KEY: 'test-serper-key',
+  DATAFORSEO_LOGIN: 'test-dfs-login',
+  DATAFORSEO_PASSWORD: 'test-dfs-password',
+};
+for (const [k, v] of Object.entries(FORCE_PROVIDER_KEYS)) {
+  if (!process.env[k]) process.env[k] = v;
+}
 
 export default defineConfig({
   esbuild: {

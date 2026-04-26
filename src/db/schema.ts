@@ -26,6 +26,8 @@ export const competitors = sqliteTable(
     isActive: integer('is_active', { mode: 'boolean' }).notNull().default(true),
     createdAt: integer('created_at').notNull().default(unixNow),
     updatedAt: integer('updated_at').notNull().default(unixNow),
+    lastIndexHash: text('last_index_hash'),
+    lastPolledAt: integer('last_polled_at'),
   },
   (t) => ({
     categoryCk: check(

@@ -1,0 +1,15 @@
+# Daily poll cron service.
+# In Railway: create a separate service, point it at this repo, and set
+# Service Settings → "Config-as-code Path" to `railway.cron-daily.toml`.
+# Required variables (Service Settings → Variables):
+#   WEB_SERVICE_URL  e.g. ${{ web.RAILWAY_PUBLIC_DOMAIN }}  (with https://)
+#   CRON_SECRET      ${{ web.CRON_SECRET }}                  (reference)
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "bash scripts/trigger-cron.sh daily"
+cronSchedule = "0 6 * * *"
+restartPolicyType = "NEVER"

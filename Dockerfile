@@ -58,6 +58,8 @@ ENV NODE_ENV=production
 COPY --from=prod-deps /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/public ./public
+# Cron-trigger services run scripts/trigger-cron.sh against this same image.
+COPY scripts ./scripts
 COPY package.json ./
 RUN mkdir -p /data \
  && chown -R node:node /data /app

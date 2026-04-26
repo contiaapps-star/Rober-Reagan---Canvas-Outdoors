@@ -58,6 +58,10 @@ export type PollerContext = {
   // Used by demo pollers to make output deterministic per (date, channel,
   // competitor). Defaults to today's UTC date.
   dateIso?: string;
+  // Live pollers need DB access to read competitor handles, last_index_hash,
+  // active keywords, and prior activities (for SEO ranking deltas). The
+  // orchestrator passes its db here. Demo pollers ignore it.
+  db?: Db | null;
 };
 
 export interface Poller {

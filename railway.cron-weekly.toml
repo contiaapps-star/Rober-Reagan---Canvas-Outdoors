@@ -1,0 +1,12 @@
+# Weekly poll cron service (Sunday 06:00 UTC).
+# Same wiring as railway.cron-daily.toml — different service, different schedule.
+# Required variables: WEB_SERVICE_URL, CRON_SECRET.
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "bash scripts/trigger-cron.sh weekly"
+cronSchedule = "0 6 * * 0"
+restartPolicyType = "NEVER"

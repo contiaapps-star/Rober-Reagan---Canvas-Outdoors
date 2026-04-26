@@ -99,24 +99,17 @@ describe('website poller (demo mode)', () => {
     }
   });
 
-  it('every poller throws "Live mode pending in Fase 5" when OPERATION_MODE=live', async () => {
-    const previous = process.env.OPERATION_MODE;
-    process.env.OPERATION_MODE = 'live';
-    try {
-      const pollers = [
-        websitePoller,
-        metaPoller,
-        googleAdsPoller,
-        tiktokPoller,
-        youtubePoller,
-        seoRankingPoller,
-        seoBacklinksPoller,
-      ];
-      for (const p of pollers) {
-        await expect(p.poll(makeCtx())).rejects.toThrow(/Live mode pending in Fase 5/);
-      }
-    } finally {
-      process.env.OPERATION_MODE = previous;
-    }
+  it('every poller exposes a stable channel name', () => {
+    const pollers = [
+      websitePoller,
+      metaPoller,
+      googleAdsPoller,
+      tiktokPoller,
+      youtubePoller,
+      seoRankingPoller,
+      seoBacklinksPoller,
+    ];
+    const channels = pollers.map((p) => p.channel);
+    expect(new Set(channels).size).toBe(channels.length);
   });
 });
