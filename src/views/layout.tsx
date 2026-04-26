@@ -1,28 +1,29 @@
 import type { FC, PropsWithChildren } from 'hono/jsx';
 
-type NavKey = 'dashboard' | 'settings' | 'health' | 'sign-out';
+export type NavKey =
+  | 'dashboard'
+  | 'settings'
+  | 'settings.competitors'
+  | 'settings.keywords'
+  | 'settings.inspiration'
+  | 'health'
+  | 'sign-out';
 
-interface NavItem {
-  key: NavKey;
-  label: string;
-  href: string;
-}
-
-const NAV_ITEMS: NavItem[] = [
-  { key: 'dashboard', label: 'Dashboard', href: '/' },
-  { key: 'settings', label: 'Settings', href: '/settings/competitors' },
-  { key: 'health', label: 'Health', href: '/health/channels' },
-  { key: 'sign-out', label: 'Sign Out', href: '/auth/logout' },
-];
+export type FlashMessage = {
+  type: 'success' | 'error';
+  message: string;
+};
 
 interface LayoutProps {
   title?: string;
   active?: NavKey;
+  flash?: FlashMessage | null;
 }
 
 export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
   title,
   active,
+  flash,
   children,
 }) => {
   const fullTitle = title
@@ -39,35 +40,148 @@ export const Layout: FC<PropsWithChildren<LayoutProps>> = ({
         <link rel="stylesheet" href="/css/output.css" />
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
         <script src="/js/htmx.min.js" defer></script>
+        <script src="/js/settings.js" defer></script>
       </head>
       <body class="min-h-screen flex bg-flowcore-bg text-flowcore-text-primary">
         <Sidebar active={active} />
-        <main class="flex-1 px-8 py-6 overflow-x-auto">{children}</main>
+        <main class="flex-1 px-8 py-6 overflow-x-auto relative">
+          {flash ? <FlashBanner flash={flash} /> : null}
+          {children}
+          <ModalRoot />
+        </main>
       </body>
     </html>
   );
 };
 
-const Sidebar: FC<{ active?: NavKey }> = ({ active }) => (
-  <aside class="fc-sidebar" data-testid="sidebar">
-    <div class="fc-sidebar__brand">FLOWCORE</div>
-    <div class="fc-sidebar__sublabel">Marketing Sensor</div>
-    <nav class="flex flex-col gap-1">
-      {NAV_ITEMS.map((item) => (
-        <a
-          href={item.href}
-          class={
-            active === item.key
-              ? 'fc-sidebar__nav-item fc-sidebar__nav-item--active'
-              : 'fc-sidebar__nav-item'
-          }
-        >
-          {item.label}
-        </a>
-      ))}
-    </nav>
-    <div class="mt-auto text-[11px] text-flowcore-muted">
-      v0.1.0 · Phase 0
+const FlashBanner: FC<{ flash: FlashMessage }> = ({ flash }) => (
+  <div
+    class={
+      flash.type === 'success'
+        ? 'fc-flash fc-flash--success'
+        : 'fc-flash fc-flash--error'
+    }
+    data-testid="flash"
+    role="status"
+  >
+    {flash.message}
+  </div>
+);
+
+const ModalRoot: FC = () => (
+  <div id="modal-root" data-testid="modal-root"></div>
+);
+
+const isSettingsActive = (active?: NavKey): boolean =>
+  active === 'settings' ||
+  active === 'settings.competitors' ||
+  active === 'settings.keywords' ||
+  active === 'settings.inspiration';
+
+const Sidebar: FC<{ active?: NavKey }> = ({ active }) => {
+  const settingsOpen = isSettingsActive(active);
+  return (
+    <aside class="fc-sidebar" data-testid="sidebar">
+      <div class="fc-sidebar__brand">FLOWCORE</div>
+      <div class="fc-sidebar__sublabel">Marketing Sensor</div>
+      <nav class="flex flex-col gap-1">
+        <NavLink href="/" label="Dashboard" isActive={active === 'dashboard'} />
+        <SettingsGroup active={active} open={settingsOpen} />
+        <NavLink
+          href="/health/channels"
+          label="Health"
+          isActive={active === 'health'}
+        />
+        <NavLink
+          href="/auth/logout"
+          label="Sign Out"
+          isActive={active === 'sign-out'}
+        />
+      </nav>
+      <div class="mt-auto text-[11px] text-flowcore-muted">
+        v0.1.0 · Phase 2
+      </div>
+    </aside>
+  );
+};
+
+const NavLink: FC<{ href: string; label: string; isActive: boolean }> = ({
+  href,
+  label,
+  isActive,
+}) => (
+  <a
+    href={href}
+    class={
+      isActive
+        ? 'fc-sidebar__nav-item fc-sidebar__nav-item--active'
+        : 'fc-sidebar__nav-item'
+    }
+    data-active={isActive ? 'true' : 'false'}
+  >
+    {label}
+  </a>
+);
+
+const SettingsGroup: FC<{ active?: NavKey; open: boolean }> = ({ active, open }) => (
+  <div
+    class="fc-sidebar__group"
+    data-testid="sidebar-settings-group"
+    data-open={open ? 'true' : 'false'}
+  >
+    <button
+      type="button"
+      class={
+        isSettingsActive(active)
+          ? 'fc-sidebar__nav-item fc-sidebar__nav-item--active fc-sidebar__group-toggle'
+          : 'fc-sidebar__nav-item fc-sidebar__group-toggle'
+      }
+      data-toggle="settings"
+      aria-expanded={open ? 'true' : 'false'}
+      data-active={isSettingsActive(active) ? 'true' : 'false'}
+    >
+      <span>Settings</span>
+      <span class="fc-sidebar__chevron" aria-hidden="true">
+        ▾
+      </span>
+    </button>
+    <div
+      class={open ? 'fc-sidebar__sub' : 'fc-sidebar__sub fc-sidebar__sub--hidden'}
+      data-testid="sidebar-settings-sub"
+    >
+      <SubNavLink
+        href="/settings/competitors"
+        label="Competitors"
+        isActive={active === 'settings.competitors'}
+      />
+      <SubNavLink
+        href="/settings/keywords"
+        label="Keywords"
+        isActive={active === 'settings.keywords'}
+      />
+      <SubNavLink
+        href="/settings/inspiration"
+        label="Inspiration"
+        isActive={active === 'settings.inspiration'}
+      />
     </div>
-  </aside>
+  </div>
+);
+
+const SubNavLink: FC<{ href: string; label: string; isActive: boolean }> = ({
+  href,
+  label,
+  isActive,
+}) => (
+  <a
+    href={href}
+    class={
+      isActive
+        ? 'fc-sidebar__nav-sub-item fc-sidebar__nav-sub-item--active'
+        : 'fc-sidebar__nav-sub-item'
+    }
+    data-active={isActive ? 'true' : 'false'}
+  >
+    {label}
+  </a>
 );

@@ -33,12 +33,45 @@
   }
 
   .fc-sidebar__nav-item {
-    @apply flex items-center gap-2 px-3 py-2 rounded-md text-sm
+    @apply flex items-center justify-between gap-2 px-3 py-2 rounded-md text-sm w-full text-left
+           border-l-[3px] border-transparent
            hover:bg-flowcore-surface hover:text-flowcore-text-primary transition-colors;
   }
 
   .fc-sidebar__nav-item--active {
-    @apply bg-flowcore-accent-soft text-flowcore-accent font-medium;
+    @apply bg-flowcore-surface text-flowcore-accent font-medium border-l-[3px];
+    border-left-color: theme('colors.flowcore.accent');
+  }
+
+  .fc-sidebar__group {
+    @apply flex flex-col gap-1;
+  }
+
+  .fc-sidebar__group-toggle {
+    @apply cursor-pointer;
+  }
+
+  .fc-sidebar__chevron {
+    @apply text-xs opacity-70;
+  }
+
+  .fc-sidebar__sub {
+    @apply flex flex-col gap-0.5 pl-3 mt-0.5;
+  }
+
+  .fc-sidebar__sub--hidden {
+    display: none;
+  }
+
+  .fc-sidebar__nav-sub-item {
+    @apply px-3 py-1.5 rounded-md text-[13px] text-flowcore-text-secondary
+           border-l-[3px] border-transparent
+           hover:bg-flowcore-surface hover:text-flowcore-text-primary transition-colors;
+  }
+
+  .fc-sidebar__nav-sub-item--active {
+    @apply bg-flowcore-surface text-flowcore-accent font-medium border-l-[3px];
+    border-left-color: theme('colors.flowcore.accent');
   }
 
   .fc-kpi-tile {
@@ -52,5 +85,174 @@
 
   .fc-kpi-tile__label {
     @apply text-flowcore-text-secondary text-xs uppercase tracking-wider;
+  }
+
+  /* Tables */
+  .table-flowcore-wrapper {
+    @apply bg-flowcore-surface border border-flowcore-border rounded-lg overflow-hidden;
+  }
+
+  .table-flowcore {
+    @apply w-full text-sm;
+  }
+
+  .table-flowcore thead {
+    @apply bg-flowcore-bg;
+  }
+
+  .fc-table__head {
+    @apply text-left px-4 py-3 text-[11px] uppercase tracking-wider
+           text-flowcore-text-secondary font-medium border-b border-flowcore-border;
+  }
+
+  .fc-table__cell {
+    @apply px-4 py-4 border-b border-flowcore-border align-top;
+  }
+
+  .table-flowcore tbody tr:hover {
+    background-color: theme('colors.flowcore.surface-hover');
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md
+           bg-flowcore-accent text-flowcore-bg text-sm font-medium
+           hover:opacity-90 transition-opacity disabled:opacity-50;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md
+           text-flowcore-danger text-xs font-medium
+           border border-transparent hover:border-flowcore-danger
+           hover:bg-flowcore-danger/10 transition-colors;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-md
+           text-flowcore-text-secondary text-xs font-medium
+           border border-flowcore-border hover:bg-flowcore-surface
+           hover:text-flowcore-text-primary transition-colors;
+  }
+
+  /* Channel chips */
+  .chip-channel {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px]
+           font-medium tracking-wide whitespace-nowrap;
+  }
+
+  .chip-channel-website {
+    @apply bg-blue-500/15 text-blue-300;
+  }
+
+  .chip-channel-meta {
+    @apply bg-violet-500/15 text-violet-300;
+  }
+
+  .chip-channel-google {
+    @apply bg-red-500/15 text-red-300;
+  }
+
+  .chip-channel-tiktok {
+    @apply bg-pink-500/15 text-pink-300;
+  }
+
+  .chip-channel-youtube {
+    @apply bg-orange-500/15 text-orange-300;
+  }
+
+  .chip-channel-seo {
+    @apply bg-emerald-500/15 text-emerald-300;
+  }
+
+  /* Pills */
+  .pill {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-[11px]
+           font-medium tracking-wide;
+  }
+
+  .pill-success {
+    @apply bg-flowcore-success/15 text-flowcore-success;
+  }
+
+  .pill-warning {
+    @apply bg-flowcore-warning/15 text-flowcore-warning;
+  }
+
+  .pill-danger {
+    @apply bg-flowcore-danger/15 text-flowcore-danger;
+  }
+
+  .pill-neutral {
+    @apply bg-flowcore-border text-flowcore-text-secondary;
+  }
+
+  /* Forms */
+  .fc-form-label {
+    @apply text-xs uppercase tracking-wider text-flowcore-text-secondary;
+  }
+
+  .fc-input {
+    @apply w-full bg-flowcore-bg border border-flowcore-border rounded-md
+           px-3 py-2 text-sm text-flowcore-text-primary
+           focus:outline-none focus:border-flowcore-accent;
+  }
+
+  .fc-input--error {
+    @apply border-flowcore-danger;
+  }
+
+  .fc-checkbox {
+    @apply h-4 w-4 rounded accent-flowcore-accent;
+  }
+
+  .fc-form-error {
+    @apply px-3 py-2 rounded-md bg-flowcore-danger/15 text-flowcore-danger text-sm;
+  }
+
+  .fc-form-error-msg {
+    @apply text-xs text-flowcore-danger;
+  }
+
+  /* Modal */
+  .fc-modal {
+    @apply fixed inset-0 z-50 flex items-center justify-center;
+  }
+
+  .fc-modal__backdrop {
+    @apply absolute inset-0 bg-black/60;
+  }
+
+  .fc-modal__panel {
+    @apply relative z-10 w-[min(560px,92vw)] max-h-[90vh] overflow-y-auto
+           bg-flowcore-surface border border-flowcore-border rounded-lg shadow-xl;
+  }
+
+  .fc-modal__header {
+    @apply flex items-center justify-between px-5 py-4 border-b border-flowcore-border;
+  }
+
+  .fc-modal__close {
+    @apply text-flowcore-text-secondary hover:text-flowcore-text-primary text-lg;
+  }
+
+  .fc-modal__body {
+    @apply px-5 py-4;
+  }
+
+  .fc-modal__footer {
+    @apply flex items-center justify-end gap-2 px-5 py-4 border-t border-flowcore-border;
+  }
+
+  /* Flash */
+  .fc-flash {
+    @apply mb-4 px-4 py-3 rounded-md text-sm;
+  }
+
+  .fc-flash--success {
+    @apply bg-flowcore-success/15 text-flowcore-success border border-flowcore-success/30;
+  }
+
+  .fc-flash--error {
+    @apply bg-flowcore-danger/15 text-flowcore-danger border border-flowcore-danger/30;
   }
 }
