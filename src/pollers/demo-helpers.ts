@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -13,14 +13,31 @@ function operationMode(): 'demo' | 'live' {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const FIXTURES_DIR = path.resolve(__dirname, 'fixtures');
+
+// Try several locations so the fixtures resolve in dev (tsx → src/), in the
+// production image (compiled → dist/, copied at build), and from arbitrary
+// CWDs. The first existing file wins.
+function resolveFixturePath(channelFile: string): string {
+  const candidates = [
+    path.resolve(__dirname, 'fixtures', `${channelFile}.json`),
+    path.resolve(__dirname, '../../src/pollers/fixtures', `${channelFile}.json`),
+    path.resolve(process.cwd(), 'src/pollers/fixtures', `${channelFile}.json`),
+    path.resolve(process.cwd(), 'dist/pollers/fixtures', `${channelFile}.json`),
+  ];
+  for (const c of candidates) {
+    if (existsSync(c)) return c;
+  }
+  // Fallback to first candidate so the ENOENT message points somewhere
+  // recognizable.
+  return candidates[0]!;
+}
 
 const fixtureCache = new Map<string, unknown[]>();
 
 export function loadFixture<T>(channelFile: string): T[] {
   const cached = fixtureCache.get(channelFile);
   if (cached) return cached as T[];
-  const fp = path.join(FIXTURES_DIR, `${channelFile}.json`);
+  const fp = resolveFixturePath(channelFile);
   const raw = readFileSync(fp, 'utf8');
   const parsed = JSON.parse(raw);
   if (!Array.isArray(parsed)) {
