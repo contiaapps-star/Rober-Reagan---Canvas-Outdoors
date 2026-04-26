@@ -5,6 +5,7 @@ import { randomUUID } from 'node:crypto';
 
 import { env } from './lib/env.js';
 import { logger } from './lib/logger.js';
+import type { AppEnv } from './lib/types.js';
 import { errorHandler } from './middleware/error-handler.js';
 import { healthRoute } from './routes/health.js';
 import { dashboardRoute } from './routes/dashboard.js';
@@ -12,7 +13,7 @@ import { settingsRoute } from './routes/settings.js';
 import { jobsRoute } from './routes/jobs.js';
 import { authRoute } from './routes/auth.js';
 
-export const app = new Hono();
+export const app = new Hono<AppEnv>();
 
 app.use('*', async (c, next) => {
   const requestId = c.req.header('x-request-id') ?? randomUUID();
