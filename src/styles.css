@@ -255,4 +255,62 @@
   .fc-flash--error {
     @apply bg-flowcore-danger/15 text-flowcore-danger border border-flowcore-danger/30;
   }
+
+  /* Filter chips */
+  .fc-chip {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium
+           bg-flowcore-surface text-flowcore-text-secondary border border-flowcore-border
+           hover:bg-flowcore-surface-hover hover:text-flowcore-text-primary transition-colors;
+  }
+
+  .fc-chip--active {
+    @apply bg-flowcore-accent-soft text-flowcore-accent border-flowcore-accent;
+  }
+
+  /* KPI tile danger variant */
+  .fc-kpi-tile--danger {
+    @apply border-flowcore-danger;
+  }
+
+  .fc-kpi-tile__value--danger {
+    @apply text-flowcore-danger;
+  }
+
+  /* Activity row */
+  .fc-avatar {
+    @apply inline-flex items-center justify-center w-8 h-8 rounded-full
+           bg-flowcore-surface-hover text-flowcore-text-primary text-sm font-semibold;
+  }
+
+  .fc-line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Action buttons (Useful/Skip) */
+  .btn-useful {
+    @apply inline-flex items-center justify-center px-2 py-1 rounded-md
+           bg-flowcore-success/15 text-flowcore-success text-xs font-medium
+           border border-flowcore-success/30 hover:bg-flowcore-success/25 transition-colors;
+  }
+
+  .btn-skip {
+    @apply inline-flex items-center justify-center px-2 py-1 rounded-md
+           bg-flowcore-muted/15 text-flowcore-text-secondary text-xs font-medium
+           border border-flowcore-border hover:bg-flowcore-surface-hover transition-colors;
+  }
+
+  /* Sortable header */
+  .fc-sort-header {
+    @apply inline-flex items-center gap-1 cursor-pointer
+           text-flowcore-text-secondary hover:text-flowcore-accent transition-colors;
+  }
+
+  /* Empty state */
+  .fc-empty-state {
+    @apply bg-flowcore-surface border border-dashed border-flowcore-border rounded-lg
+           px-6 py-10 flex flex-col items-center text-center;
+  }
 }
