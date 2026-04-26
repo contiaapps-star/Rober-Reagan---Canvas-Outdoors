@@ -1,6 +1,30 @@
 (function () {
   'use strict';
 
+  // Use template-fragment parsing so OOB swaps like `<tbody hx-swap-oob>` and
+  // bare `<tr>` rows in pagination responses survive the browser's HTML parser.
+  // Must be set before htmx processes any response.
+  document.addEventListener('htmx:load', function () {
+    if (window.htmx && window.htmx.config) {
+      window.htmx.config.useTemplateFragments = true;
+    }
+  });
+  if (window.htmx && window.htmx.config) {
+    window.htmx.config.useTemplateFragments = true;
+  }
+
+  // htmx 1.x ignores 4xx responses by default — they get logged and the swap
+  // is skipped. Our form handlers return 400 with the re-rendered form (with
+  // inline error messages) and rely on HX-Retarget/HX-Reswap headers to land
+  // the swap inside #modal-root. Tell htmx to swap 400/422 like a 200.
+  document.addEventListener('htmx:beforeSwap', function (evt) {
+    var status = evt.detail.xhr && evt.detail.xhr.status;
+    if (status === 400 || status === 422) {
+      evt.detail.shouldSwap = true;
+      evt.detail.isError = false;
+    }
+  });
+
   // Confirm dialog for destructive actions: any element with [data-confirm]
   // prompts before htmx fires the request.
   document.addEventListener('htmx:confirm', function (evt) {

@@ -32,6 +32,36 @@ export const PROVIDER_CALL_COSTS: Record<
   youtube: 0,
 };
 
+// Per-action overrides — surface used by BudgetGuard and the cost reporter so
+// each provider can charge differently depending on what was called. Falls back
+// to PROVIDER_CALL_COSTS[provider] when the action key is unknown.
+export const PROVIDER_ACTION_COSTS: Record<string, number> = {
+  // Apify actor flavours
+  'apify:meta': 0.05,
+  'apify:tiktok': 0.03,
+  'apify:youtube': 0.03,
+  'apify:google_ads': 0.05,
+  // Zenrows scrape (per request)
+  'zenrows:scrape': 0.001,
+  // Serper SERP query
+  'serper:search': 0.001,
+  // DataForSEO backlink lookup per domain
+  'dataforseo:backlinks': 0.04,
+};
+
+export function estimateProviderCallCost(
+  provider: Exclude<Provider, 'openrouter'>,
+  action?: string,
+): number {
+  if (action) {
+    const key = `${provider}:${action}`;
+    if (PROVIDER_ACTION_COSTS[key] !== undefined) {
+      return PROVIDER_ACTION_COSTS[key]!;
+    }
+  }
+  return PROVIDER_CALL_COSTS[provider] ?? 0;
+}
+
 export function estimateOpenrouterCostUsd(
   model: string,
   promptTokens: number,

@@ -29,14 +29,18 @@ const STATUS_OPTIONS: { value: string; label: string }[] = [
 
 const FEED_HX_TARGET = '#activity-feed';
 
+export const FILTERS_BAR_ID = 'filters';
+
 export const FiltersBar: FC<{
   state: FilterState;
   competitors: ActiveCompetitor[];
-}> = ({ state, competitors }) => (
+  oob?: boolean;
+}> = ({ state, competitors, oob }) => (
   <section
-    id="filters"
+    id={FILTERS_BAR_ID}
     class="mb-4 flex flex-col gap-3"
     data-testid="filters-bar"
+    {...(oob ? { 'hx-swap-oob': 'outerHTML' } : {})}
   >
     <ChipGroup
       testId="range-chips"

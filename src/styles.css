@@ -313,4 +313,30 @@
     @apply bg-flowcore-surface border border-dashed border-flowcore-border rounded-lg
            px-6 py-10 flex flex-col items-center text-center;
   }
+
+  /* Generic panel surface */
+  .fc-panel {
+    @apply bg-flowcore-surface rounded-lg border border-flowcore-border;
+  }
+
+  /* Pre-formatted JSON / payload */
+  .fc-pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  /* Banners (degraded / broken) */
+  .fc-banner {
+    @apply block px-4 py-3 mb-4 rounded-md text-sm border;
+  }
+
+  .fc-banner--degraded {
+    @apply bg-flowcore-warning/15 text-flowcore-warning border-flowcore-warning/30
+           hover:bg-flowcore-warning/25;
+  }
+
+  .fc-banner--broken {
+    @apply bg-flowcore-danger/15 text-flowcore-danger border-flowcore-danger/30
+           hover:bg-flowcore-danger/25;
+  }
 }

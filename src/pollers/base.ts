@@ -5,6 +5,7 @@ import type { Db } from '../db/client.js';
 import { activities, pollRuns } from '../db/schema.js';
 import { logger } from '../lib/logger.js';
 import { computeDedupeHash, existsByHash, type DedupeChannel } from '../services/dedupe.js';
+import { applyDegradationFor } from '../services/graceful-degradation.js';
 import {
   summarizeActivity,
   type SummarizableCompetitor,
@@ -250,6 +251,7 @@ export async function runPoller(
       })
       .where(eq(pollRuns.id, runId))
       .run();
+    applyDegradationFor(db, poller.channel, ctx.competitorId, 'failed');
     return {
       runId,
       status: 'failed',
@@ -291,6 +293,7 @@ export async function runPoller(
     })
     .where(eq(pollRuns.id, runId))
     .run();
+  applyDegradationFor(db, poller.channel, ctx.competitorId, 'ok');
 
   return {
     runId,

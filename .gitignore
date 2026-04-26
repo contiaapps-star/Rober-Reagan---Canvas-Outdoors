@@ -34,3 +34,4 @@ logs/
 npm-debug.log*
 
 # private input materials (PRD, transcripts, screenshots)
+.claude

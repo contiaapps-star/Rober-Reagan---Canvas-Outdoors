@@ -2,10 +2,17 @@ import type { FC } from 'hono/jsx';
 
 import type { KpiCounts } from '../../db/queries.js';
 
-export const KpiRow: FC<{ counts: KpiCounts }> = ({ counts }) => (
+export const KPI_ROW_ID = 'kpi-row';
+
+export const KpiRow: FC<{ counts: KpiCounts; oob?: boolean }> = ({
+  counts,
+  oob,
+}) => (
   <div
+    id={KPI_ROW_ID}
     class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-6"
     data-testid="kpi-row"
+    {...(oob ? { 'hx-swap-oob': 'outerHTML' } : {})}
   >
     <KpiTile
       testId="kpi-new-today"

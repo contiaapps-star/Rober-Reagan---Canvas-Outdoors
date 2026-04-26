@@ -27,7 +27,17 @@ export const CompetitorRow: FC<{ competitor: CompetitorWithHandles }> = ({
         {TIER_LABELS[competitor.tier] ?? competitor.tier}
       </div>
     </td>
-    <td class="fc-table__cell text-flowcore-text-secondary">{competitor.domain}</td>
+    <td class="fc-table__cell">
+      <a
+        href={`https://${competitor.domain}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-flowcore-accent hover:underline"
+        data-testid={`competitor-domain-${competitor.id}`}
+      >
+        {competitor.domain}
+      </a>
+    </td>
     <td class="fc-table__cell">
       <span class="pill pill-neutral">
         {CATEGORY_LABELS[competitor.category] ?? competitor.category}

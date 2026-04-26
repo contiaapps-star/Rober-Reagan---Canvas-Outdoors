@@ -6,3 +6,15 @@ dockerfilePath = "Dockerfile"
 healthcheckPath = "/health"
 healthcheckTimeout = 30
 restartPolicyType = "ON_FAILURE"
+
+# Railway cron jobs — fire HTTP POSTs against the running web service. The
+# CRON_SECRET header must match env.CRON_SECRET on the web service.
+# Daily poll: website + Meta + Google + TikTok + YouTube at 06:00 UTC.
+[[deploy.cron]]
+schedule = "0 6 * * *"
+command = "curl -fS -X POST https://${RAILWAY_PUBLIC_DOMAIN}/jobs/poll/daily -H 'X-Cron-Secret: ${CRON_SECRET}'"
+
+# Weekly poll: SEO ranking + backlinks every Sunday 06:00 UTC.
+[[deploy.cron]]
+schedule = "0 6 * * 0"
+command = "curl -fS -X POST https://${RAILWAY_PUBLIC_DOMAIN}/jobs/poll/weekly -H 'X-Cron-Secret: ${CRON_SECRET}'"

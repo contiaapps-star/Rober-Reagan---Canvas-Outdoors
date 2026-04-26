@@ -1,4 +1,4 @@
-import { Hono } from 'hono';
+import { Hono, type Context } from 'hono';
 import { z } from 'zod';
 
 import type { Db } from '../db/client.js';
@@ -134,6 +134,24 @@ function competitorValuesFromForm(form: FormData): CompetitorFormValues {
   };
 }
 
+// Form validation errors are returned as 400 with the re-rendered form. The
+// form is mounted inside #modal-root, but its hx-target points at the table
+// body for success — these headers tell htmx to redirect the swap to the
+// modal so the user actually sees the inline error message.
+// `Parameters<Context['html']>[0]` keeps us aligned with whatever c.html
+// accepts in the current Hono version (JSX.Element today).
+type HonoHtmlBody = Parameters<Context['html']>[0];
+
+function respondFormError(
+  c: Context,
+  jsx: HonoHtmlBody,
+  status: 400 | 422 = 400,
+): Response | Promise<Response> {
+  c.header('HX-Retarget', '#modal-root');
+  c.header('HX-Reswap', 'innerHTML');
+  return c.html(jsx, status);
+}
+
 function flattenZodErrors<T extends Record<string, unknown>>(
   err: z.ZodError,
 ): T {
@@ -193,21 +211,21 @@ export function createSettingsRoute(db: Db): Hono {
 
     if (!parsed.success) {
       const errors = flattenZodErrors<CompetitorFormErrors>(parsed.error);
-      return c.html(
+      return respondFormError(
+        c,
         <CompetitorForm mode="create" values={values} errors={errors} />,
-        400,
       );
     }
 
     const normalizedDomain = parsed.data.domain.toLowerCase();
     if (competitorDomainExists(db, normalizedDomain)) {
-      return c.html(
+      return respondFormError(
+        c,
         <CompetitorForm
           mode="create"
           values={{ ...values, domain: normalizedDomain }}
           errors={{ domain: 'Domain already exists' }}
         />,
-        400,
       );
     }
 
@@ -240,22 +258,22 @@ export function createSettingsRoute(db: Db): Hono {
 
     if (!parsed.success) {
       const errors = flattenZodErrors<CompetitorFormErrors>(parsed.error);
-      return c.html(
+      return respondFormError(
+        c,
         <CompetitorForm mode="edit" id={id} values={values} errors={errors} />,
-        400,
       );
     }
 
     const normalizedDomain = parsed.data.domain.toLowerCase();
     if (competitorDomainExists(db, normalizedDomain, id)) {
-      return c.html(
+      return respondFormError(
+        c,
         <CompetitorForm
           mode="edit"
           id={id}
           values={{ ...values, domain: normalizedDomain }}
           errors={{ domain: 'Domain already exists' }}
         />,
-        400,
       );
     }
 
@@ -314,19 +332,19 @@ export function createSettingsRoute(db: Db): Hono {
     });
     if (!parsed.success) {
       const errors = flattenZodErrors<KeywordFormErrors>(parsed.error);
-      return c.html(
+      return respondFormError(
+        c,
         <KeywordForm mode="create" values={values} errors={errors} />,
-        400,
       );
     }
     if (keywordExists(db, parsed.data.keyword)) {
-      return c.html(
+      return respondFormError(
+        c,
         <KeywordForm
           mode="create"
           values={values}
           errors={{ keyword: 'Keyword already exists' }}
         />,
-        400,
       );
     }
     const input: KeywordInput = {
@@ -355,20 +373,20 @@ export function createSettingsRoute(db: Db): Hono {
     });
     if (!parsed.success) {
       const errors = flattenZodErrors<KeywordFormErrors>(parsed.error);
-      return c.html(
+      return respondFormError(
+        c,
         <KeywordForm mode="edit" id={id} values={values} errors={errors} />,
-        400,
       );
     }
     if (keywordExists(db, parsed.data.keyword, id)) {
-      return c.html(
+      return respondFormError(
+        c,
         <KeywordForm
           mode="edit"
           id={id}
           values={values}
           errors={{ keyword: 'Keyword already exists' }}
         />,
-        400,
       );
     }
     const updated = updateKeyword(db, id, {
@@ -427,19 +445,19 @@ export function createSettingsRoute(db: Db): Hono {
     });
     if (!parsed.success) {
       const errors = flattenZodErrors<InspirationFormErrors>(parsed.error);
-      return c.html(
+      return respondFormError(
+        c,
         <InspirationForm mode="create" values={values} errors={errors} />,
-        400,
       );
     }
     if (inspirationExists(db, parsed.data.channel, parsed.data.value)) {
-      return c.html(
+      return respondFormError(
+        c,
         <InspirationForm
           mode="create"
           values={values}
           errors={{ value: 'Source already exists for this channel' }}
         />,
-        400,
       );
     }
     const input: InspirationInput = {
@@ -471,20 +489,20 @@ export function createSettingsRoute(db: Db): Hono {
     });
     if (!parsed.success) {
       const errors = flattenZodErrors<InspirationFormErrors>(parsed.error);
-      return c.html(
+      return respondFormError(
+        c,
         <InspirationForm mode="edit" id={id} values={values} errors={errors} />,
-        400,
       );
     }
     if (inspirationExists(db, parsed.data.channel, parsed.data.value, id)) {
-      return c.html(
+      return respondFormError(
+        c,
         <InspirationForm
           mode="edit"
           id={id}
           values={values}
           errors={{ value: 'Source already exists for this channel' }}
         />,
-        400,
       );
     }
     const updated = updateInspiration(db, id, {

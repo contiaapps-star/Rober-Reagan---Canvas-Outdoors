@@ -4,8 +4,10 @@ import { z } from 'zod';
 
 import type { Db } from '../db/client.js';
 import {
+  getActivityDetailById,
   getActivityFeed,
   getCompetitorsActive,
+  getDegradedCompetitors,
   getKpiCounts,
   setActivityStatus,
   type ActivityStatus,
@@ -26,7 +28,11 @@ import {
 import { readFlash } from '../lib/flash.js';
 import { ActivityFeedRegion } from '../views/dashboard/feed.js';
 import { ActivityRow, StatusPill } from '../views/dashboard/activity-row.js';
+import { ActivityDetailView } from '../views/dashboard/activity-detail.js';
 import { DashboardView } from '../views/dashboard/index.js';
+import { FiltersBar } from '../views/dashboard/filters.js';
+import { KpiRow } from '../views/dashboard/kpi-row.js';
+import { Fragment } from 'hono/jsx';
 
 const DEFAULT_LIMIT = 25;
 const MAX_LIMIT = 100;
@@ -103,6 +109,7 @@ export function createDashboardRoute(db: Db): Hono {
 
     const counts = getKpiCounts(db, nowUnix);
     const competitors = getCompetitorsActive(db);
+    const degraded = getDegradedCompetitors(db);
 
     writeFilterCookie(c, state);
 
@@ -117,6 +124,7 @@ export function createDashboardRoute(db: Db): Hono {
         lastUpdatedIso={new Date(nowUnix * 1000).toISOString()}
         nowUnix={nowUnix}
         flash={readFlash(c)}
+        degraded={degraded}
       />,
     );
   });
@@ -142,7 +150,7 @@ export function createDashboardRoute(db: Db): Hono {
 
     writeFilterCookie(c, state);
 
-    return c.html(
+    const feed = (
       <ActivityFeedRegion
         rows={rows}
         state={state}
@@ -150,8 +158,20 @@ export function createDashboardRoute(db: Db): Hono {
         hasMore={hasMore}
         isAppend={isAppend}
         nowUnix={nowUnix}
-      />,
+      />
     );
+    // On a fresh filter change (not pagination), also re-render the chips so
+    // the active state matches the new filter. htmx picks this up via OOB swap.
+    if (!isAppend) {
+      const competitors = getCompetitorsActive(db);
+      return c.html(
+        <Fragment>
+          {feed}
+          <FiltersBar state={state} competitors={competitors} oob />
+        </Fragment>,
+      );
+    }
+    return c.html(feed);
   });
 
   // ─── POST /activities/:id/status ──────────────────────────────────────────
@@ -202,13 +222,32 @@ export function createDashboardRoute(db: Db): Hono {
       return c.text('Activity not found', 404);
     }
 
-    // For htmx requests, return the full updated row (so action buttons keep
-    // their state and the pill reflects the new status).
-    if (c.req.header('hx-request')) {
-      return c.html(<ActivityRow row={updated} />);
+    // POST from the detail page sets return_to=detail — bounce back to /activities/:id
+    if (c.req.query('return_to') === 'detail') {
+      return c.redirect(`/activities/${id}`, 303);
     }
-    // Default: also return the row fragment (callers can re-use).
-    return c.html(<ActivityRow row={updated} />);
+
+    // Refresh KPIs alongside the row swap so "Marked Useful" / "Pending Review"
+    // / "New Today" reflect the change without a full reload.
+    const nowUnix = Math.floor(Date.now() / 1000);
+    const counts = getKpiCounts(db, nowUnix);
+    return c.html(
+      <Fragment>
+        <ActivityRow row={updated} />
+        <KpiRow counts={counts} oob />
+      </Fragment>,
+    );
+  });
+
+  // ─── GET /activities/:id ──────────────────────────────────────────────────
+  app.get('/activities/:id', (c) => {
+    const id = c.req.param('id');
+    if (!id || id.trim() === '') return c.text('Not found', 404);
+    // Reserve a few sub-paths to avoid being treated as ids.
+    if (id === 'feed') return c.text('Not found', 404);
+    const row = getActivityDetailById(db, id);
+    if (!row) return c.text('Activity not found', 404);
+    return c.html(<ActivityDetailView row={row} />);
   });
 
   return app;

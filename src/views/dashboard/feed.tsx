@@ -93,9 +93,18 @@ const AppendFragment: FC<{
   nowUnix?: number;
 }> = ({ rows, state, nextCursor, hasMore, nowUnix }) => (
   <Fragment>
-    {rows.map((r) => (
-      <ActivityRow row={r} nowUnix={nowUnix} />
-    ))}
+    {/* OOB swap: append the new rows to the existing tbody. htmx matches the
+        OOB element by id, so this <tbody> is consumed and its children are
+        appended to the existing #activity-feed-tbody. Requires
+        htmx.config.useTemplateFragments=true so <tbody> survives parsing. */}
+    <tbody id="activity-feed-tbody" hx-swap-oob="beforeend">
+      {rows.map((r) => (
+        <ActivityRow row={r} nowUnix={nowUnix} />
+      ))}
+    </tbody>
+    {/* Main swap target: replaces #feed-load-more (the wrapper that contains
+        the button that fired the request) with the next button — or the
+        end-of-feed marker on the last page. */}
     <LoadMoreOrEnd
       nextCursor={nextCursor}
       hasMore={hasMore}
@@ -137,6 +146,7 @@ const LoadMoreOrEnd: FC<{
   if (!hasMore || !nextCursor) {
     return (
       <div
+        id="feed-load-more"
         class="px-4 py-4 text-center text-flowcore-muted text-xs"
         data-testid="feed-end"
       >
@@ -156,9 +166,8 @@ const LoadMoreOrEnd: FC<{
         class="btn-ghost"
         data-testid="load-more"
         hx-get={buildLoadMoreUrl(nextCursor, state)}
-        hx-target="#activity-feed-tbody"
-        hx-swap="beforeend"
-        hx-select="tbody#activity-feed-tbody > tr, [data-testid='feed-end'], [data-testid='feed-load-more-wrapper']"
+        hx-target="#feed-load-more"
+        hx-swap="outerHTML"
       >
         Load more
       </button>

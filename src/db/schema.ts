@@ -28,6 +28,10 @@ export const competitors = sqliteTable(
     updatedAt: integer('updated_at').notNull().default(unixNow),
     lastIndexHash: text('last_index_hash'),
     lastPolledAt: integer('last_polled_at'),
+    degradedChannels: text('degraded_channels', { mode: 'json' })
+      .$type<string[]>()
+      .notNull()
+      .default(sql`('[]')`),
   },
   (t) => ({
     categoryCk: check(
