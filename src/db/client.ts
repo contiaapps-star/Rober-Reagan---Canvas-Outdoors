@@ -1,22 +1,37 @@
 import Database from 'better-sqlite3';
 import { drizzle, type BetterSQLite3Database } from 'drizzle-orm/better-sqlite3';
 import { env } from '../lib/env.js';
+import * as schema from './schema.js';
+
+export type Db = BetterSQLite3Database<typeof schema>;
 
 let sqlite: Database.Database | undefined;
-let db: BetterSQLite3Database | undefined;
+let db: Db | undefined;
 
-export function getDb(): BetterSQLite3Database {
-  if (db) return db;
+function applyPragmas(conn: Database.Database) {
+  conn.pragma('journal_mode = WAL');
+  conn.pragma('synchronous = NORMAL');
+  conn.pragma('foreign_keys = ON');
+}
+
+export function getSqlite(): Database.Database {
+  if (sqlite) return sqlite;
   sqlite = new Database(env.DATABASE_PATH);
-  sqlite.pragma('journal_mode = WAL');
-  sqlite.pragma('foreign_keys = ON');
-  db = drizzle(sqlite);
+  applyPragmas(sqlite);
+  return sqlite;
+}
+
+export function getDb(): Db {
+  if (db) return db;
+  const conn = getSqlite();
+  db = drizzle(conn, { schema });
   return db;
 }
 
 export function pingDb(): { ok: boolean; error?: string } {
   try {
     const conn = sqlite ?? new Database(env.DATABASE_PATH);
+    if (!sqlite) applyPragmas(conn);
     conn.prepare('SELECT 1 as ok').get();
     if (!sqlite) conn.close();
     return { ok: true };
