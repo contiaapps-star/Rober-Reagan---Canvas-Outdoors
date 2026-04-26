@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      target: runner
+    image: flowcore-marketing-sensor:prod
+    command: ["node", "dist/index.js"]
+    volumes:
+      - db-data:/data
+    restart: unless-stopped

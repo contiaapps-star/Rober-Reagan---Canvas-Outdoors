@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    background-color: theme('colors.flowcore.bg');
+    color: theme('colors.flowcore.text-primary');
+  }
+
+  body {
+    font-family: theme('fontFamily.sans');
+    font-size: 14px;
+    line-height: 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .fc-sidebar {
+    @apply w-[220px] min-h-screen flex flex-col px-4 py-6 gap-1
+           bg-flowcore-bg border-r border-flowcore-border text-flowcore-text-secondary;
+  }
+
+  .fc-sidebar__brand {
+    @apply text-flowcore-accent font-bold tracking-[0.18em] text-base;
+  }
+
+  .fc-sidebar__sublabel {
+    @apply text-flowcore-text-secondary text-[11px] tracking-[0.16em] uppercase mb-6;
+  }
+
+  .fc-sidebar__nav-item {
+    @apply flex items-center gap-2 px-3 py-2 rounded-md text-sm
+           hover:bg-flowcore-surface hover:text-flowcore-text-primary transition-colors;
+  }
+
+  .fc-sidebar__nav-item--active {
+    @apply bg-flowcore-accent-soft text-flowcore-accent font-medium;
+  }
+
+  .fc-kpi-tile {
+    @apply bg-flowcore-surface rounded-lg px-6 py-5 flex flex-col gap-1
+           border border-flowcore-border;
+  }
+
+  .fc-kpi-tile__value {
+    @apply text-flowcore-accent text-3xl font-semibold tabular-nums;
+  }
+
+  .fc-kpi-tile__label {
+    @apply text-flowcore-text-secondary text-xs uppercase tracking-wider;
+  }
+}

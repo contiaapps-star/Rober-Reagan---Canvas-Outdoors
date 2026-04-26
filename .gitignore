@@ -1,2 +1,40 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+*.tsbuildinfo
+public/css/output.css
+
 /docs
-/resourses
+/resources
+
+# environment
+.env
+.env.local
+.env.*.local
+
+# database / volumes
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+db-data/
+
+# test artifacts
+coverage/
+.nyc_output/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# logs
+logs/
+*.log
+npm-debug.log*
+
+# private input materials (PRD, transcripts, screenshots)
+/resourses/

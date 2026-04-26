@@ -1,0 +1,1 @@
+# drizzle-kit emits SQL migrations into this folder via `npm run db:generate`.
